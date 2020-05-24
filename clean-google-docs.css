@@ -1,18 +1,45 @@
-div#kix-appview {
-    background: white;
+#docs-editor {
+    background-color: white !important;
 }
 
-/* Remove shadow */
 .kix-paginateddocumentplugin.kix-paginateddocumentplugin-compact-mode {
-    box-shadow: none !important;
+    box-shadow: none;
 }
 
-/* Remove the line between pages */
+.navigation-widget {
+ //   border-right: 1px solid #ddd;
+}
+
 .kix-page-compact::before {
+    border: none;
+}
+
+.left-sidebar-container {
+    overflow: hidden;
+}
+
+.docs-gm-sidebars .navigation-widget {
+    margin-left: 0;
+}
+
+.docs-gm-sidebars .navigation-widget-hat-title {
+    font-family: Roboto !important;
+}
+
+.navigation-item {
+    padding: 0 12px;
+}
+
+.navigation-widget-hat {
     display: none;
 }
 
-/* Make comments wider */
-.docs-gm .docos-anchoreddocoview {
-    width: 450px !important;
+.kix-document-top-shadow, #spellGrammarCheckButton, #printButton, #undoButton, #redoButton, #insertLinkButton, #clearFormattingButton, #clearFormattingSeparator {
+    display: none;
 }
+/*
+.navigation-widget-hat,
+.left-sidebar-container {
+    border: none;
+}
+*/
