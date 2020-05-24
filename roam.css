@@ -1,0 +1,402 @@
+/* These styles apply to https://roamresearch.com */
+
+.intercom-app, .intercom-launcher-frame, #intercom-container {
+    display: none !important;
+}
+
+.roam-body .roam-app .roam-sidebar-container, #right-sidebar {
+    background-color: rgba(216, 225, 232, .2) !important;
+}
+
+#roam-right-sidebar-content > div {
+    border-bottom: none !important;
+}
+
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .page, 
+.roam-body .roam-app .roam-sidebar-container > * {
+    opacity:  80%;    
+}
+
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .page:hover,
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .log-button:hover {
+    background: white;
+    color: black;
+    opacity: 100%;
+}
+
+#buffer .help-title,
+#buffer .help-sub-title,
+#buffer .help-item-text,
+#buffer .help-item-label {
+    color: #5c7080 !important;
+}
+
+#buffer {
+    z-index: 100000;
+    background: white !important;
+}
+
+#buffer .help-title:first-of-type {
+  //  display: none;
+}
+
+#buffer:hover {
+  //  height: calc(100vh - 50px) !important;
+}
+
+.check-container {
+    padding-right: 4px;
+}
+
+.rm-page-ref-brackets {
+   opacity: .3;
+}
+
+/* .starred-pages-wrapper:first-child { } */
+
+.bp3-input {
+    box-shadow: none;
+    border: 1px solid #73869447 !important;
+}
+
+.roam-log-container .roam-log-page {
+    border-top:  1px solid #73869447;
+}
+
+
+#buffer {
+  //  border-left: 1px solid #73869447 !important;
+  //  padding-left: 4px;
+  //   background: #73869447 !important;
+  //  box-shadow: #73869447 0 -5px 17px;
+}
+
+.rm-level1, .rm-level2 {
+    font-weight: 600;
+}
+
+.rm-level1{ 
+    font-size: 1.6em;
+}
+.rm-level2 {
+    font-size: 1.2em;
+}
+
+.block-border-left {
+    border-left: 1px solid #bfccd690; /* Lighten */
+}
+
+.rm-reference-item {
+    margin-top: 0;
+}
+
+.bp3-popover-content > div {
+    max-height: 520px !important;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 /*, html, body */ {
+    font-family: 'Inter' !important;
+    font-weight: 500 !important;
+}
+
+.roam-sidebar-container {
+    box-shadow: none !important;
+    width: 13vw !important;
+    min-width: 200px;
+}
+
+.roam-body-main {
+    height: 100% !important;
+    top: 0 !important;
+}
+
+.roam-topbar {
+  //  display: none;
+    opacity: 0;
+    transition: opacity 200ms;
+    z-index: 1;
+    background: none;
+  //  padding-right: 40px; 
+    
+    /* Making space for the close sidebar button */
+    width: calc(100% - 40px);
+    padding: 0;
+}
+.roam-topbar:hover, .roam-topbar:focus-within {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+
+#right-sidebar button {
+   // position: absolute;
+   // right: 294px;
+   // top: 12px;
+    z-index: 100000;
+   // display: none;
+}
+
+.roam-center .bp3-button.bp3-small.block-ref-count-button {
+    background: white !important;
+}
+
+/* Horizontal line in sidebar */
+.flex-v-box.starred-pages-wrapper > div:first-of-type {
+    background-color: rgba(57, 75, 89, .1) !important;
+    margin: 8px -20px;
+}
+
+/* Hide "Starred" header */
+.flex-v-box.starred-pages-wrapper > .flex-h-box {
+    display: none;
+}
+
+.roam-right-sidebar-content div div {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+}
+
+.bp3-button.bp3-minimal.bp3-small {
+    margin-right: 4px;
+    margin-left: -4px;
+}
+
+/* Maggie's styles */
+/*  Make sure you have the fonts Lato and Open Sans installed locally on your machine.
+They're free to download from Google:
+
+https://fonts.google.com/specimen/Lato
+https://fonts.google.com/specimen/Open+Sans  */
+
+.roam-block-container {
+    max-width: 1000px;
+}
+
+.rm-query {
+    border: 0.5px solid #e4e9ec;
+    border-radius: 5px;
+    
+}
+
+.rm-query .rm-query-title {
+    background-color: #f7f8f8;
+    padding: 0.8em;
+    color: #d1dbe2;
+    font-size: 80%;
+}
+
+.rm-reference-main.rm-query-content {
+    padding: 0.8em;
+}
+
+.rm-reference-main .rm-reference-item .rm-block-text {
+    font-size: 90%;
+}
+
+.rm-ref-page-view-title span {
+    
+}
+
+.rm-reference-main .rm-reference-item .controls {
+    margin-left: -1em;
+}
+
+.rm-ref-page-view {
+    padding: 0.4em 0.2em;
+}
+
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .page {
+    padding: 6px;
+}
+
+div.flex-v-box.starred-pages-wrapper > div.flex-h-box > span {
+    font-size: 14px;
+    opacity: 80%;
+    letter-spacing: 0.04em;
+}
+
+div.roam-sidebar-container.noselect > div > div {
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    
+}
+
+#block-input {
+    background: white;
+}
+
+.roam-body #block-input > span > div {
+    padding: 6px 24px;
+    background: white;
+}
+
+span.bp3-icon-small.bp3-icon-star {
+    display: none;
+    visibility: hidden;
+}
+
+.roam-block {
+    max-width: 850px;
+}
+
+#right-sidebar > div {
+    background-color: #f7f8fa;
+    border-left: 1px solid #e9ebef;
+}
+.rm-page-ref-brackets {
+    display: none;
+}
+.controls .simple-bullet-outer .simple-bullet-inner {
+    background-color: #a9b3ca;
+
+}
+.controls .simple-bullet-outer {
+    height: 3px;
+    width: 5px;
+}
+.block-border-left {
+    border-left: 1px solid #fff;
+}
+.kanban-board {
+    background-color: #fff;
+}
+.kanban-card {
+    background-color: white;
+    margin: 8px;
+    box-shadow: 0px 1px 2px #9EB3C0;
+    padding: 10px;
+    border-radius: 2px;
+    line-height: 1.3em;
+}
+.kanban-title {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 6px;
+}
+.kanban-column {
+    background-color: #E4EDF2;
+    margin: 0px 4px 0px 4px;
+    padding: 4px;
+    min-width: 200px;
+    border-radius: 3px;
+}
+.rm-block-ref::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    border-radius: 40px;
+    height: 10px;
+    background: #ff913c;
+    margin-right: 5px;
+}
+.rm-block-ref {
+    border-bottom: none;
+    font-size: 1em;
+    color: #627a9d;
+}
+.rm-block-ref:hover {
+    background: none;
+    cursor: pointer;
+}
+.checkmark {
+    background: #fff;
+}
+.check-container input:checked ~ .checkmark {
+    background: #295f7c;
+}
+.check-container input:checked ~ .checkmark:after {
+    border-color: #fff;
+}
+.rm-reference-item {
+    margin-top: 8px;
+    border-radius: 6px;
+    border: 1px solid #e4e9ee;
+    margin-right: 8px;
+    flex: 1 1 100%;
+    word-break: break-word;
+    background-color: #f7f9fb;
+    padding: 8px;
+}
+
+.rm-level2 {
+    font-size: 1.5em;
+}
+.rm-level3 {
+    color: #939aae;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+a {
+    color: #295f7c;
+}
+.intercom-app,
+.intercom-launcher-frame,
+#intercom-container {
+    display: none;
+}
+.roam-body .roam-app .roam-sidebar-container {
+    background-color: white;
+    border-right: 1px #eee solid;
+}
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .page,
+.roam-body .roam-app .roam-sidebar-container > * {
+    opacity: 80%;
+    box-shadow: none;
+}
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .page:hover,
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .log-button:hover {
+    background: white;
+    color: black;
+    opacity: 100%;
+}
+#buffer.tall {
+    height: calc(100vh - 50px);
+}
+.check-container {
+    padding-right: 4px;
+}
+span.rm-page-ref {
+    border-radius: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.content span.rm-page-ref {
+    padding: 4px 1px 1px;
+    /* required for fixing azo */
+}
+.center-proj {
+    text-align: center;
+}
+
+
+.rm-page-ref:hover {
+    // text-decoration: none;
+    opacity: 1;
+}
+span.rm-page-ref {
+    font-weight: 500;
+    opacity: .9;
+    color: #295f7c;
+}
+.rm-page-ref-tag {
+    font-size: 0.88em; 
+}
+
+/* Custom data tags */
+span.rm-page-ref-tag[data-tag="GitHub"] {
+    color: #ea4aaa;
+}
+
+span.rm-page-ref-tag[data-tag="good-for-sleepy"] {
+    color: #9769FF;
+}
+
+
+span.rm-page-ref-tag[data-tag="backlog"] {
+    color: #7172FC;
+    line-height: 2em;
+}
+
+span.rm-page-ref-tag[data-tag="important"] {
+    color: #FC766F;
+    font-weight: 700;
+}
