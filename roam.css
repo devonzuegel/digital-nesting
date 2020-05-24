@@ -400,3 +400,8 @@ span.rm-page-ref-tag[data-tag="important"] {
     color: #FC766F;
     font-weight: 700;
 }
+
+span.rm-page-ref-tag[data-tag="to-read"] {
+    color: #0080ff;
+    font-weight: 700;
+}
