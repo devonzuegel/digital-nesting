@@ -1,0 +1,18 @@
+div#kix-appview {
+    background: white;
+}
+
+/* Remove shadow */
+.kix-paginateddocumentplugin.kix-paginateddocumentplugin-compact-mode {
+    box-shadow: none !important;
+}
+
+/* Remove the line between pages */
+.kix-page-compact::before {
+    display: none;
+}
+
+/* Make comments wider */
+.docs-gm .docos-anchoreddocoview {
+    width: 450px !important;
+}
