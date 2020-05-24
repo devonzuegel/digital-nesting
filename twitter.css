@@ -1,0 +1,59 @@
+@import url('https://rsms.me/inter/inter.css');
+html {
+    font-family: 'Inter', sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+    html {
+        font-family: 'Inter var', sans-serif;
+    }
+}
+
+* {
+    font-family: 'Inter', 'SF UI Display', 'Inter' !important;
+}
+
+/* Hide useless boxes of information */
+.css-1dbjc4n.r-1u4rsef.r-9cbz99.r-t23y2h.r-1phboty.r-rs99b7.r-1cad53l.r-1udh08x,
+nav[aria-label="Footer"],.css-1dbjc4n.r-1adg3ll .css-1dbjc4n .css-1dbjc4n.r-1niwhzg.r-1tlfku8.r-t23y2h.r-1phboty.r-1yadl64.r-ku1wi2.r-1udh08x {
+    display: none;
+}
+
+a[aria-label="Search and explore"] {
+    display: none;
+}
+
+/* Banner */
+body:before {
+    content: '👋 Are you trying to achieve something?';
+    width: 100%;
+    display: block;
+    background-color: rgb(29, 161, 242);
+    color: white;
+    padding: 8px;
+    font-family: 'Inter', 'SF UI Display', 'Inter' !important;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    font-weight: 600;
+    z-index: 4000;
+}
+
+/* search */
+.css-1dbjc4n.r-1awozwy.r-aqfbo4.r-14lw9ot.r-18u37iz.r-ahm1il.r-hxarbt.r-174vidy.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6,
+/* left side */
+.css-1dbjc4n.r-1pi2tsx.r-1wtj0ep.r-1rnoaur.r-thmkab.r-o96wvk {
+    margin-top: 48px !important;
+    height: 95%;
+}
+
+/* center section */
+.css-1dbjc4n.r-150rngu.r-16y2uox.r-1wbh5a2.r-rthrr5 {
+    margin-top: 37px !important;    
+    height: 90%;
+}
+
+/* search */
+.css-1dbjc4n.r-sydbv7.r-1b9bua6 .css-1dbjc4n.r-1awozwy.r-aqfbo4.r-14lw9ot.r-18u37iz.r-ahm1il.r-hxarbt.r-174vidy.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6 {
+    height: auto;
+}
