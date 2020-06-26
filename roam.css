@@ -5,13 +5,17 @@
 #intercom-container {
   display: none !important;
 }
+
 .roam-body .roam-app .roam-sidebar-container,
 #right-sidebar {
   background-color: rgba(216, 225, 232, 0.2) !important;
+  // background-color: white !important;
 }
+
 #roam-right-sidebar-content > div {
   border-bottom: none !important;
 }
+
 .roam-body
   .roam-app
   .roam-sidebar-container
@@ -22,6 +26,7 @@
 .roam-body .roam-app .roam-sidebar-container > * {
   opacity: 80%;
 }
+
 .roam-body
   .roam-app
   .roam-sidebar-container
@@ -38,104 +43,138 @@
   color: black;
   opacity: 100%;
 }
+
 #buffer .help-title,
 #buffer .help-sub-title,
 #buffer .help-item-text,
 #buffer .help-item-label {
   color: #5c7080 !important;
 }
+
 #buffer {
   z-index: 100000;
+  // background: none !important;
   background: white !important;
 }
+
 #buffer .help-title:first-of-type {
-  // display: none;
+  //  display: none;
 }
+
 #buffer:hover {
-  // height: calc(100vh - 50px) !important;
+  //  height: calc(100vh - 50px) !important;
 }
+
 .check-container {
   padding-right: 4px;
 }
+
 .rm-page-ref-brackets {
   opacity: 0.3;
 }
 
 /* .starred-pages-wrapper:first-child { } */
+
 .bp3-input {
   box-shadow: none;
   border: 1px solid #73869447 !important;
 }
+
 .roam-log-container .roam-log-page {
   border-top: 1px solid #73869447;
 }
 
 #buffer {
-  // border-left: 1px solid #73869447 !important;
-  // padding-left: 4px;
-  //  background: #73869447 !important;
-  // box-shadow: #73869447 0 -5px 17px;
+  //  border-left: 1px solid #73869447 !important;
+  //  padding-left: 4px;
+  //   background: #73869447 !important;
+  //  box-shadow: #73869447 0 -5px 17px;
 }
+
 .rm-level1,
 .rm-level2 {
   font-weight: 600;
 }
+
 .rm-level1 {
   font-size: 1.6em;
 }
 .rm-level2 {
   font-size: 1.2em;
 }
+
 .block-border-left {
   border-left: 1px solid #bfccd690; /* Lighten */
+  border-radius: 0;
 }
+
 .rm-reference-item {
   margin-top: 0;
 }
+
 .bp3-popover-content > div {
   max-height: 520px !important;
 }
+
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 /*, html, body */ {
   font-family: 'Inter' !important;
   font-weight: 500 !important;
 }
+
 .roam-sidebar-container {
   box-shadow: none !important;
   width: 13vw !important;
   min-width: 200px;
 }
+
 .roam-body-main {
   height: 100% !important;
   top: 0 !important;
 }
-.roam-topbar {
-  // display: none;
+
+.roam-topbar * * {
   opacity: 0;
+}
+
+.roam-topbar:hover * *,
+.roam-topbar:focus-within * * {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.roam-topbar {
+  //  display: none;
   transition: opacity 200ms;
   z-index: 1;
   background: none;
-  // padding-right: 40px;
+  //  padding-right: 40px;
 
   /* Making space for the close sidebar button */
   width: calc(100% - 40px);
   padding: 0;
-}
-.roam-topbar:hover,
-.roam-topbar:focus-within {
-  opacity: 1;
-  transition: opacity 200ms;
 }
 #right-sidebar button {
   // position: absolute;
   // right: 294px;
   // top: 12px;
   z-index: 100000;
+
   // display: none;
 }
+
 .roam-center .bp3-button.bp3-small.block-ref-count-button {
   background: white !important;
+  border-radius: 23px;
+  border: 1px solid rgba(216, 225, 232, 0.75) !important;
+  margin-top: 2px;
+  margin-right: 4px;
+  font-weight: bold;
+  font-family: 'iA Writer Mono S';
+  color: rgb(114, 145, 168);
 }
-
+.roam-center .bp3-button.bp3-small.block-ref-count-button:hover {
+  border: 1px solid rgb(198, 210, 219) !important;
+}
 /* Horizontal line in sidebar */
 .flex-v-box.starred-pages-wrapper > div:first-of-type {
   background-color: rgba(57, 75, 89, 0.1) !important;
@@ -146,47 +185,67 @@
 .flex-v-box.starred-pages-wrapper > .flex-h-box {
   display: none;
 }
+
 .roam-right-sidebar-content div div {
   margin-left: -8px !important;
   margin-right: -8px !important;
 }
+
 .bp3-button.bp3-minimal.bp3-small {
   margin-right: 4px;
   margin-left: -4px;
 }
 
 /* Maggie's styles */
+/*  Make sure you have the fonts Lato and Open Sans installed locally on your machine.
+They're free to download from Google:
+
+https://fonts.google.com/specimen/Lato
+https://fonts.google.com/specimen/Open+Sans  */
 
 .roam-block-container {
   max-width: 1000px;
 }
+
 .rm-query {
   border: 0.5px solid #e4e9ec;
   border-radius: 5px;
 }
+
 .rm-query .rm-query-title {
   background-color: #f7f8f8;
   padding: 0.8em;
   color: #d1dbe2;
   font-size: 80%;
 }
+
 .rm-reference-main.rm-query-content {
   padding: 0.8em;
 }
+
 .rm-reference-main .rm-reference-item .rm-block-text {
   font-size: 90%;
 }
+
+.rm-block-text {
+  max-width: none;
+}
+
 .rm-ref-page-view-title span {
 }
+
 .rm-reference-main .rm-reference-item .controls {
   // margin-left: -1em;
 }
+
 .controls {
   padding-left: 6px;
 }
+
 .rm-ref-page-view {
   padding: 0.4em 0.2em;
 }
+
 .roam-body
   .roam-app
   .roam-sidebar-container
@@ -196,41 +255,54 @@
   .page {
   padding: 6px;
 }
+
 div.flex-v-box.starred-pages-wrapper > div.flex-h-box > span {
   font-size: 14px;
   opacity: 80%;
   letter-spacing: 0.04em;
 }
+
 div.roam-sidebar-container.noselect > div > div {
   font-size: 14px;
   letter-spacing: 0.03em;
 }
+
 #block-input {
   background: white;
 }
+
 .roam-body #block-input > span > div {
   padding: 6px 24px;
   background: white;
 }
+
 span.bp3-icon-small.bp3-icon-star {
   display: none;
   visibility: hidden;
 }
+
 .roam-block {
   max-width: 850px;
 }
-#right-sidebar > div,
-.rm-embed-container {
-  background-color: #f7f8fa;
-  border-left: 1px solid #e9ebef;
+
+#right-sidebar > div {
+  background-color: white !important; // #fcfdff !important;
+  // border-left: 1px solid #eceff4;
 }
 .rm-embed-container .rm-embed-container,
 #right-sidebar .rm-embed-container {
-  background: #e9ebef;
+  background: rgba(216, 225, 232, 0.2) !important; // #f3f5fb; // #e9ebef;
   border-left: none;
+  // border: 1px solid white;
+}
+
+.rm-embed-container,
+.rm-embed-container .rm-embed-container,
+#right-sidebar .rm-embed-container {
+  background-color: rgba(216, 225, 232, 0.3) !important; // #f0f2f6c9 !important;
 }
 .rm-page-ref-brackets {
-  display: none;
+  // display: none;
 }
 .controls .simple-bullet-outer .simple-bullet-inner {
   background-color: #a9b3ca;
@@ -288,7 +360,7 @@ span.bp3-icon-small.bp3-icon-star {
   background: #fff;
 }
 .check-container input:checked ~ .checkmark {
-  background: #295f7c;
+  background: #177cd5; // #295f7c;
 }
 .check-container input:checked ~ .checkmark:after {
   border-color: #fff;
@@ -303,16 +375,21 @@ span.bp3-icon-small.bp3-icon-star {
   background-color: #f7f9fb;
   padding: 8px;
 }
+
 .rm-level2 {
-  font-size: 1.5em;
+  font-size: 1.3em;
+  // color: #6a7c8a;
 }
 .rm-level3 {
-  color: #939aae;
-  font-weight: 400;
+  color: #8990a4;
+  // font-weight: 500 !important;
   font-size: 1.3em;
 }
-a {
-  color: #295f7c;
+a,
+.rm-page-ref,
+a:hover,
+.rm-page-ref:hover {
+  color: #177cd5; // #295f7c;
 }
 .intercom-app,
 .intercom-launcher-frame,
@@ -322,6 +399,8 @@ a {
 .roam-body .roam-app .roam-sidebar-container {
   background-color: white;
   border-right: 1px #eee solid;
+  height: 100vh !important;
+  top: 0 !important;
 }
 .roam-body
   .roam-app
@@ -368,14 +447,20 @@ span.rm-page-ref {
 .center-proj {
   text-align: center;
 }
+
 .rm-page-ref:hover {
   // text-decoration: none;
-  opacity: 1;
+  // background: #00a6ff1a;
+  // opacity: 1;
 }
 span.rm-page-ref {
   font-weight: 500;
-  opacity: 0.9;
-  color: #295f7c;
+  // opacity: .95;
+  // color: #295f7c;
+  // text-decoration: underline;
+  // background: #00a6ff1a;
+  // padding: 1px 4px;
+  border-radius: 5px;
 }
 .rm-page-ref-tag {
   font-size: 0.88em;
@@ -384,19 +469,34 @@ span.rm-page-ref {
 /* Custom data tags */
 span.rm-page-ref-tag[data-tag='GitHub'] {
   color: #ea4aaa;
+  font-weight: 700;
+  background: none;
+  padding: 0;
 }
+
 span.rm-page-ref-tag[data-tag='good-for-sleepy'] {
   color: #9769ff;
+  font-weight: 700;
+  background: none;
+  padding: 0;
 }
+
 span.rm-page-ref-tag[data-tag='backlog'] {
   color: #7172fc;
-  line-height: 2em;
+  background: none;
+  padding: 0;
 }
+
 span.rm-page-ref-tag[data-tag='important'] {
   color: #fc766f;
   font-weight: 700;
+  background: none;
+  padding: 0;
 }
+
 span.rm-page-ref-tag[data-tag='to-read'] {
   color: #0080ff;
   font-weight: 700;
+  background: none;
+  padding: 0;
 }
