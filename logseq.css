@@ -1,0 +1,214 @@
+:root {
+  --color-level-1-custom: rgba(247, 246, 244, .8);
+}
+
+/********************/
+/** Custom queries **/
+/********************/
+
+html[data-theme='light'] #right-sidebar {
+  background-color: var(--color-level-1-custom);
+}
+
+html[data-theme='light'] .color-level .color-level {
+  background-color: rgba(255, 254, 253);
+  border: 1px solid var(--color-level-1);
+  border-radius: 8px;
+}
+
+html[data-theme='light'] .color-level .color-level .color-level {
+  background-color: var(--color-level-1);
+  border-radius: 8px;
+}
+
+html[data-theme='light'] .sidebar-item.color-level {
+  background: none;
+}
+
+/* Inline custom queries */
+html[data-theme='light'] .block-body .custom-query {
+  background-color: var(--color-level-1-custom);
+  border: 1px solid var(--color-level-1);
+}
+
+.block-body .custom-query {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-top: 10px;
+  border-radius: 8px;
+  margin-top: 0;
+}
+
+/* Today queries */
+#today-queries {
+  font-size: .9em;
+  margin-left: -24px;
+  border-radius: 8px;
+  margin-top: 48px;
+}
+
+#today-queries .ls-block {
+  padding-top: 2px;
+  padding-bottom: 0;
+}
+
+html[data-theme='light'] #today-queries .custom-query {
+  background-color: var(--color-level-1-custom);
+  border: 3px solid white;
+}
+
+html[data-theme='dark'] #today-queries .custom-query {
+  background-color: rgba(255, 255, 255,.04);
+  border: 3px solid rgba(255, 255, 255,.05);
+}
+
+#today-queries .custom-query {
+  margin-top: 2px;
+  padding-top: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  border-radius: 8px;
+}
+
+#today-queries .custom-query:first-of-type {
+  margin-top: 0;
+  border-top: none;
+}
+
+.custom-query-title {
+  // font-family: 'Roboto Mono' !important;
+  font-weight: bolder;
+  opacity: .4;
+}
+
+/*******************/
+/** Right sidebar **/
+/*******************/
+
+.sidebar-item {
+  box-shadow: none !important;
+}
+
+html[data-theme='light'] html #left-container::-webkit-scrollbar {
+  background-color: white;
+}
+
+html[data-theme='light'] html .cp__right-sidebar-scollable::-webkit-scrollbar {
+  background-color: rgb(247, 246, 244, .8);
+}
+
+html[data-theme='light'] .sidebar-item {
+  border-bottom: 1px solid #e8e5de;
+}
+
+/*************************/
+/** Tags (e.g. #urgent) **/
+/*************************/
+
+.tag, code, pre {
+  font-family: 'iA Writer Quattro S' !important;
+  font-weight: 500;
+}
+
+.tag[data-ref="urgent"] {
+  background: rgb(255, 145, 0);
+  color: white;
+  padding: 0 3px;
+  border-radius: 6px;
+}
+
+.tag[data-ref="skipped"] {
+  background: #333;
+  color: white;
+  padding: 0 3px;
+  border-radius: 6px;
+}
+
+/********************************/
+/** Add emoji to sidebar links **/
+/********************************/
+
+.cp__right-sidebar-settings > .ml-4.text-sm {
+  font-weight: bold;
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) > a {
+	color: transparent;
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) a:before {
+	content: "⭐️ ‎‎‎‎Shortcuts";
+	color: var(--ls-primary-text-color);;
+	display: block;
+	position: relative;
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) > a {
+	color: transparent;
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) a:before {
+	content: "🦋 ‎‎‎‎Recent";
+	color: var(--ls-primary-text-color);;
+	display: block;
+	position: relative;
+}
+
+/* Don't show the page graph button */
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) {
+  display: none;
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(4) > a {
+	color: transparent;
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(4) a:before {
+	content: "🆘 ‎‎‎‎Help";
+	color: var(--ls-primary-text-color);;
+	display: block;
+	position: relative;
+}
+
+/***********/
+/** TODOs **/
+/***********/
+
+.form-checkbox {
+  color: var(--ls-page-checkbox-color,#6093a0);
+  background: none;
+  border: 2px solid var(--ls-page-checkbox-color,#6093a0);
+  border-radius: 2px;
+}
+
+.todo .form-checkbox {
+  border-color: #999;
+}
+
+.doing .form-checkbox {
+  border-color: rgb(50, 209, 135);
+  border-radius: 13px;
+}
+
+.done .form-checkbox {
+  border-color: #999;
+}
+
+.form-checkbox {
+  margin-right: 9px !important;
+}
+
+.marker-switch {
+  display: none;
+}
+
+.form-checkbox:checked {
+  background-color: #999;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='3 3 10 10' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e") !important;
+}
+
+.form-checkbox:focus {
+  border-color: #999;
+}
