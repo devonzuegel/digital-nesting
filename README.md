@@ -1,4 +1,4 @@
-# Digital nesting 🐣
+<h1>Digital nesting 🐣</h1> <!-- This h1 is a manual tag so it doesn't get pulled into the auto-generated ToC -->
 Hello! Welcome to the place where I collect my custom CSS, or as I like to call it my "digital nesting".
 
 These files used to live in gists, but then I made so many of them for sites all around the internet that I decided it was finally time to break it out into its own little project.
@@ -7,10 +7,11 @@ You're welcome to borrow or tweak any of these custom styles.
 
 ### Table of contents
 
-- [Roam](#roam)
+- [Logseq](#logseq)
 - [Google Docs](#google-docs)
 - [Twitter](#twitter)
 - [Zoom](#zoom)
+- [Roam](#roam)
 
 ### Usage
 Chrome is my primary browser, so I use:
@@ -19,11 +20,15 @@ Chrome is my primary browser, so I use:
 
 If you don't use Chrome, these files should work with any other sort of browser CSS and JS managers too, maybe with some minor tweaks.
 
-## Roam
+## Logseq
 
-[`roam.css`](roam.css)
+[`logseq.css`](logseq.css)
 
-![](roam.png)
+Logseq is the primary note taking app I use these days. It has great base styles, but I just had a few tiny things I wanted to tweak.
+
+![](logseq-light.png)
+
+![](logseq-dark.png)
 
 ## Google Docs
 
@@ -52,3 +57,9 @@ It also neatens up the styles and removes some of the modules that I never use.
 If orphaned Zoom  tabs annoy you as much as they annoy me, I have a little gift for you! [This TamperMonkey script](zoom.js) automatically closes those tabs on success.
 
 <img width="70%" src="zoom.jpg"/>
+
+## Roam
+
+[`roam.css`](roam.css)
+
+![](roam.png)
