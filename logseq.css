@@ -124,7 +124,8 @@ html[data-theme='light'] .sidebar-item {
 /*************************/
 
 .tag, code, pre {
-  font-family: 'iA Writer Mono V' !important;
+  // font-family: 'iA Writer Mono V' !important;
+  // font-family: 'Roboto Mono' !important;
   font-weight: 500;
 }
 
@@ -136,7 +137,7 @@ html[data-theme='light'] .sidebar-item {
 }
 
 .tag[data-ref="skipped"] {
-  background: #333;
+  background: #444;
   color: white;
   padding: 0 3px;
   border-radius: 6px;
@@ -144,6 +145,13 @@ html[data-theme='light'] .sidebar-item {
 
 .tag[data-ref="good-for-sleepy"] {
   background: rgb(65, 17, 141);
+  color: white;
+  padding: 0 3px;
+  border-radius: 6px;
+}
+
+.tag[data-ref="low-priority"] {
+  background: rgb(186, 174, 204);
   color: white;
   padding: 0 3px;
   border-radius: 6px;
@@ -236,9 +244,35 @@ html[data-theme='light'] .sidebar-item {
   border-color: #999;
 }
 
+html[data-theme=light] .done .form-checkbox:focus {
+  border-color: #999; // #555;
+  background-color: #999; // #555;
+  transition: all 100ms;
+}
+
+html[data-theme=light] .todo .form-checkbox:focus {
+  border-color: #999; // #555;
+}
+
+.form-checkbox:focus {
+  // transition: border-color 1000ms, ;
+}
+
+mark {
+  background: #43b7ff42;
+}
+
 /******************************************************************************/
 /** Headers *******************************************************************/
 /******************************************************************************/
+
+.ls-block h1,
+.ls-block h2,
+.ls-block h3 {
+  margin-left: -21px !important;
+  padding-left: 5px;
+  background: white;
+}
 
 .ls-block h1 {
   margin: 0;
@@ -288,13 +322,65 @@ h1.title {
   display: block !important;
 }
 
-.todo .form-checkbox,
-.doing .form-checkbox,
-.done .form-checkbox {
-  margin-left: -24px;
+.done, .done * {
+  opacity: 1;
+  color: #aaa;
 }
 
 .todo .form-checkbox,
 .doing .form-checkbox {
   background: white;
+}
+
+.form-checkbox {
+  height: .88em;
+  width: .9em;
+  height: 15px;
+  width: 15px;
+  margin-right: 8px !important;
+  margin-left: -22px;
+}
+
+.form-checkbox:hover {
+  height: 15.1px;
+  width: 15.1px;
+  margin-right: 8px !important;
+}
+
+/******************************************************************************/
+
+.extensions__code>.CodeMirror {
+  // width: 97% !important;
+  // border: 3px solid orange;
+}
+
+.CodeMirror pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like,
+.CodeMirror * {
+  word-wrap: normal !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.bullet-container {
+  margin-left: -3px;
+  margin-right: 3px;
+}
+
+.bullet-container .bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #999;
+}
+
+.time-spent a {
+  display: none;
+  cursor: default;
+  color: #444;
+  font-size: 13px;
+  font-family: "Roboto Mono";
+}
+
+.block-control, .block-control:hover {
+  margin-left: -1px;
+  margin-right: 8px !important;
 }
