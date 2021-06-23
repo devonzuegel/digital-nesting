@@ -25,6 +25,22 @@ html[data-theme='light'] .sidebar-item.color-level {
   background: none;
 }
 
+/* Header */
+#repo-switch .dropdown-caret,
+#repo-switch .repo-plus {
+  display: none;
+}
+
+#repo-switch {
+  margin-left: 12px;
+}
+
+.cp__header-logo .svg-shadow {
+  /* Remove the box shadow that comes by default */
+  box-shadow: none;
+  filter: none;
+}
+
 /* Inline custom queries */
 html[data-theme='light'] .block-body .custom-query {
   background-color: var(--color-level-1-custom);
@@ -108,7 +124,7 @@ html[data-theme='light'] .sidebar-item {
 /*************************/
 
 .tag, code, pre {
-  font-family: 'iA Writer Quattro S' !important;
+  font-family: 'iA Writer Mono V' !important;
   font-weight: 500;
 }
 
@@ -121,6 +137,13 @@ html[data-theme='light'] .sidebar-item {
 
 .tag[data-ref="skipped"] {
   background: #333;
+  color: white;
+  padding: 0 3px;
+  border-radius: 6px;
+}
+
+.tag[data-ref="good-for-sleepy"] {
+  background: rgb(65, 17, 141);
   color: white;
   padding: 0 3px;
   border-radius: 6px;
@@ -211,4 +234,67 @@ html[data-theme='light'] .sidebar-item {
 
 .form-checkbox:focus {
   border-color: #999;
+}
+
+/******************************************************************************/
+/** Headers *******************************************************************/
+/******************************************************************************/
+
+.ls-block h1 {
+  margin: 0;
+  margin-top: 12px;
+}
+
+.ls-block h2 {
+  margin: 0;
+  margin-top: 9px;
+}
+
+.ls-block h3 {
+  margin: 0;
+  margin-top: 6px;
+}
+
+h1.title {
+  font-weight: 800;
+  font-size: 36px;
+  width: 100%;
+}
+
+/* This should only apply to the title row, but I couldn't find a good selector
+ * for it. It appears that it's the only thing that has these 3 classes, so it
+ * seems fine for now. */
+.flex.flex-row.space-between,
+.flex-1.journal.page > .flex.flex-col > .content > .flex-1.flex-row.foldable-title {
+  padding-bottom: 0rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e8e5dec2;
+}
+
+/******************************************************************************/
+/** Undo doc mode for now *****************************************************/
+/******************************************************************************/
+
+.doc-mode {
+  margin-left: 0;
+}
+
+.doc-mode .block-children {
+  border-left: 1px solid #eee !important;
+  margin-left: 24px !important;
+}
+
+.doc-mode .hide-inner-bullet .bullet {
+  display: block !important;
+}
+
+.todo .form-checkbox,
+.doing .form-checkbox,
+.done .form-checkbox {
+  margin-left: -24px;
+}
+
+.todo .form-checkbox,
+.doing .form-checkbox {
+  background: white;
 }
