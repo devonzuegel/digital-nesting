@@ -52,6 +52,7 @@
 .cp__header-logo:before {
   content: "→ Home";
   font-size: 13px;
+  color: var(--ls-icon-color,#045591);
   font-weight: bold;
 }
 
@@ -368,6 +369,13 @@ h1.title {
 .todo .form-checkbox,
 .doing .form-checkbox {
   background: var(--ls-primary-background-color);
+}
+
+.block-highlight,
+.content .selected,
+.content .selected .todo .form-checkbox,
+.content .selected .doing .form-checkbox {
+  background-color: #e2f4ff;
 }
 
 #right-sidebar .ls-block h1,
