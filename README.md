@@ -1,5 +1,5 @@
 <h1>Digital nesting 🐣</h1> <!-- This h1 is a manual tag so it doesn't get pulled into the auto-generated ToC -->
-Hello! Welcome to the place where I collect my custom CSS, or as I like to call it my "digital nesting".
+Hello! Welcome to the place where I collect my custom CSS and other custom configuration, or as I like to call it my "digital nesting".
 
 These files used to live in gists, but then I made so many of them for sites all around the internet that I decided it was finally time to break it out into its own little project.
 
@@ -22,25 +22,25 @@ If you don't use Chrome, these files should work with any other sort of browser 
 
 ## Logseq
 
-[`logseq.css`](logseq.css)
+[`logseq/custom.css`](logseq/custom.css) &nbsp; · &nbsp; [`logseq/config.edn`](logseq/config.edn)
 
 Logseq is the primary note taking app I use these days. It has great base styles, but I just had a few tiny things I wanted to tweak.
 
-![](logseq-light.png)
+![](logseq/logseq-light.png)
 
-![](logseq-dark.png)
+![](logseq/logseq-dark.png)
 
 ## Google Docs
 
-[`google-docs.css`](google-docs.css) &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1127421463647023104)
+[`google-docs/google-docs.css`](google-docs/google-docs.css) &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1127421463647023104)
 
 I don't like that Google Docs still imposes the sheet-of-paper metaphor. I roughly never print my documents, so I wrote custom CSS for Google Docs to embrace the fact that they really are just dynamic webpages.
 
-![](google-docs.png)
+![](google-docs/google-docs.png)
 
 ## Twitter
 
-[`twitter.css`](twitter.css)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1254262711979929600)
+[`twitter/twitter.css`](twitter/twitter.css)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1254262711979929600)
 
 When I go to Twitter to for a particular task (e.g. look at a work-related tweet), I invariably find myself distracted by my feed before I make any progress.
 
@@ -48,18 +48,18 @@ To combat that, I added some custom CSS to https://twitter.com so I stop making 
 
 It also neatens up the styles and removes some of the modules that I never use.
 
-<img width="70%" src="twitter.jpg" />
+<img width="70%" src="twitter/twitter.jpg" />
 
 ## Zoom
 
-[`zoom.js`](zoom.js)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1242590822740049921)
+[`zoom/zoom.js`](zoom/zoom.js)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1242590822740049921)
 
 If orphaned Zoom  tabs annoy you as much as they annoy me, I have a little gift for you! [This TamperMonkey script](zoom.js) automatically closes those tabs on success.
 
-<img width="70%" src="zoom.jpg"/>
+<img width="70%" src="zoom/zoom.jpg"/>
 
 ## Roam
 
-[`roam.css`](roam.css)
+[`roam/roam.css`](roam/roam.css)
 
-![](roam.png)
+![](roam/roam.png)

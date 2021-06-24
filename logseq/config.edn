@@ -1,0 +1,116 @@
+{;; Currently, we support either "Markdown" or "Org".
+ ;; This can overwrite your global preference so that
+ ;; maybe your personal preferred format is Org but you'd
+ ;; need to use Markdown for some projects.
+ ;; :preferred-format ""
+
+ ;; Preferred workflow style. 
+ ;; Value is either ":now" for NOW/LATER style,
+ ;; or ":todo" for TODO/DOING style.
+ :preferred-workflow :todo
+
+ ;; Git settings
+ :git-pull-secs 60
+ :git-push-secs 10
+ :git-auto-push false
+
+ ;; The app will ignore those directories or files.
+ ;; E.g. "/archived" "/test.md"
+ :hidden ["/archive"]
+
+ ;; When creating the new journal page, the app will use your template content here.
+ ;; Example for Markdown users: "## [[Work]]\n###\n## [[Family]]\n###\n
+ ;; Example for Org mode users: "** [[Work]]\n***\n** [[Family]]\n***\n
+ :default-templates
+ {:journals ""}
+
+ ;; The app will show those queries in today's journal page.
+ :default-queries
+{:journals
+  [{:title "Currently DOING"
+    :collapsed? false
+    :query [:find (pull ?b [*])
+            :where
+            [?b :block/marker ?marker]
+            [(contains? #{"NOW" "DOING"} ?marker)]]
+    :result-transform (fn [result]
+                        (->> result
+                             ; Children don't get rendered for some reason, so just remove them
+                             (map (fn [r] (dissoc r :block/children)))
+                             (group-by :block/page)))
+    }
+ 
+    {:title "Tasks added today"
+      :collapsed? false
+      :query [:find (pull ?b [*])
+              :in $ start-of-today-ms end-of-today-ms
+              :where
+              [?b :block/marker ?marker]
+              [(contains? #{"TODO" "DOING" "DONE"} ?marker)]
+              [?b :block/properties ?properties]
+              [(get ?properties :todo) ?todo-ms]
+              [(>= ?todo-ms start-of-today-ms)]
+              [(<= ?todo-ms end-of-today-ms)]
+              ]
+      :inputs [:start-of-today-ms :end-of-today-ms]
+      :result-transform (fn [result]
+                          (->> result
+                              ; Children don't get rendered for some reason, so just remove them
+                              (map (fn [r] (dissoc r :block/children)))
+                              (group-by :block/page)))
+      }
+
+    {:title "Tasks marked as DONE today"
+      :collapsed? false
+      :query [:find (pull ?b [*])
+              :in $ start-of-today-ms end-of-today-ms
+              :where
+              [?b :block/marker ?marker]
+              [(contains? #{"DONE"} ?marker)]
+              [?b :block/properties ?properties]
+              [(get ?properties :done) ?done-ms]
+              [(>= ?done-ms start-of-today-ms)]
+              [(<= ?done-ms end-of-today-ms)]
+              ]
+      :inputs [:start-of-today-ms :end-of-today-ms]
+      :result-transform (fn [result]
+                          (->> result
+                              ; Children don't get rendered for some reason, so just remove them
+                              (map (fn [r] (dissoc r :block/children)))
+                              (group-by :block/page)))
+      }
+
+   {:title "All outstanding TODOs"
+    :collapsed? true
+    :query [:find (pull ?b [*])
+	    :where
+	      [?b :block/marker ?marker]
+	      [(contains? #{"LATER" "TODO"} ?marker)]]
+    :result-transform (fn [result]
+                        (->> result
+                             ; Children don't get rendered for some reason, so just remove them
+                             (map (fn [r] (dissoc r :block/children)))
+                             (group-by :block/page)))
+    }
+]}
+
+ ;; Add your own commands to speedup.
+ ;; E.g. [["js" "Javascript"]]
+ :commands
+ []
+
+ ;; Macros replace texts and will make you more productive.
+ ;; For example:
+ ;; Add this to the macros below:
+ ;; {"poem" "Rose is $1, violet's $2. Life's ordered: Org assists you."}
+ ;; input "{{{poem red,blue}}}"
+ ;; becomes
+ ;; Rose is red, violet's blue. Life's ordered: Org assists you.
+ :macros {}
+ :preferred-format :markdown
+ :editor/logical-outdenting? true
+ :feature/enable-journals? true
+ :ui/show-brackets? false
+ :markdown/version 2
+ :feature/enable-timetracking? true
+ :date-formatter "yyyy-MM-dd EEEE"}
