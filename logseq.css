@@ -56,7 +56,12 @@
 }
 
 #search-field::placeholder {
-  color: var(--ls-quaternary-background-color);
+  color: var(--ls-icon-color,#045591);
+  opacity: 0.6;
+}
+
+#search-field {
+  transition: opacity 0.1s ease-in;
 }
 
 /* Inline custom queries */
