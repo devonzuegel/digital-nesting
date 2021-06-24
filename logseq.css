@@ -163,6 +163,14 @@ html[data-theme='light'] .sidebar-item {
 
 .cp__right-sidebar-settings > .ml-4.text-sm {
   font-weight: bold;
+  font-size: 13px;
+  margin-top: 24px;
+  opacity: .3;
+  transition: opacity 100ms ease-in;
+}
+.cp__right-sidebar-settings > .ml-4.text-sm:hover {
+  opacity: .7;
+  transition: opacity 100ms ease-in;
 }
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) > a {
@@ -170,7 +178,7 @@ html[data-theme='light'] .sidebar-item {
 }
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) a:before {
-	content: "⭐️ ‎‎‎‎Shortcuts";
+	content: "→ Favorites";
 	color: var(--ls-primary-text-color);;
 	display: block;
 	position: relative;
@@ -181,7 +189,7 @@ html[data-theme='light'] .sidebar-item {
 }
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) a:before {
-	content: "🦋 ‎‎‎‎Recent";
+	content: "→ ‎Recent";
 	color: var(--ls-primary-text-color);;
 	display: block;
 	position: relative;
@@ -197,7 +205,7 @@ html[data-theme='light'] .sidebar-item {
 }
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(4) a:before {
-	content: "🆘 ‎‎‎‎Help";
+	content: "→ ‎Help";
 	color: var(--ls-primary-text-color);;
 	display: block;
 	position: relative;
@@ -293,6 +301,7 @@ h1.title {
   font-weight: 800;
   font-size: 36px;
   width: 100%;
+  margin-bottom: 0;
 }
 
 /* This should only apply to the title row, but I couldn't find a good selector
@@ -300,9 +309,9 @@ h1.title {
  * seems fine for now. */
 .flex.flex-row.space-between,
 .flex-1.journal.page > .flex.flex-col > .content > .flex-1.flex-row.foldable-title {
-  padding-bottom: 0rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #e8e5dec2;
+  padding-bottom: .25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #e8e5dee3;
 }
 
 /******************************************************************************/
