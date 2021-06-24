@@ -6,22 +6,26 @@
 /** Custom queries **/
 /********************/
 
-html[data-theme='light'] #right-sidebar {
+// html[data-theme='light']
+#right-sidebar {
   background-color: var(--color-level-1-custom);
 }
 
-html[data-theme='light'] .color-level .color-level {
+// html[data-theme='light']
+.color-level .color-level {
   background-color: rgba(255, 254, 253);
   border: 1px solid var(--color-level-1);
   border-radius: 8px;
 }
 
-html[data-theme='light'] .color-level .color-level .color-level {
+// html[data-theme='light']
+.color-level .color-level .color-level {
   background-color: var(--color-level-1);
   border-radius: 8px;
 }
 
-html[data-theme='light'] .sidebar-item.color-level {
+// html[data-theme='light']
+.sidebar-item.color-level {
   background: none;
 }
 
@@ -39,6 +43,20 @@ html[data-theme='light'] .sidebar-item.color-level {
   /* Remove the box shadow that comes by default */
   box-shadow: none;
   filter: none;
+}
+
+.cp__header-logo svg {
+  display: none;
+}
+
+.cp__header-logo:before {
+  content: "→ Home";
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#search-field::placeholder {
+  color: var(--ls-quaternary-background-color);
 }
 
 /* Inline custom queries */
@@ -116,7 +134,7 @@ html[data-theme='light'] html .cp__right-sidebar-scollable::-webkit-scrollbar {
 }
 
 html[data-theme='light'] .sidebar-item {
-  border-bottom: 1px solid #e8e5de;
+  border-bottom: 1px solid var(--ls-quaternary-background-color);
 }
 
 /*************************/
@@ -157,20 +175,20 @@ html[data-theme='light'] .sidebar-item {
   border-radius: 6px;
 }
 
-/********************************/
-/** Add emoji to sidebar links **/
-/********************************/
+/*******************/
+/** Sidebar links **/
+/*******************/
 
 .cp__right-sidebar-settings > .ml-4.text-sm {
   font-weight: bold;
   font-size: 13px;
   margin-top: 24px;
-  opacity: .3;
+  opacity: 0.6;
   transition: opacity 100ms ease-in;
 }
 .cp__right-sidebar-settings > .ml-4.text-sm:hover {
-  opacity: .7;
-  transition: opacity 100ms ease-in;
+  opacity: 1;
+  transition: opacity .3s ease-in;
 }
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) > a {
@@ -179,7 +197,7 @@ html[data-theme='light'] .sidebar-item {
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) a:before {
 	content: "→ Favorites";
-	color: var(--ls-primary-text-color);;
+	color: var(--ls-icon-color,#045591);
 	display: block;
 	position: relative;
 }
@@ -190,7 +208,7 @@ html[data-theme='light'] .sidebar-item {
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) a:before {
 	content: "→ ‎Recent";
-	color: var(--ls-primary-text-color);;
+	color: var(--ls-icon-color,#045591);
 	display: block;
 	position: relative;
 }
@@ -206,9 +224,13 @@ html[data-theme='light'] .sidebar-item {
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(4) a:before {
 	content: "→ ‎Help";
-	color: var(--ls-primary-text-color);;
+	color: var(--ls-icon-color,#045591);
 	display: block;
 	position: relative;
+}
+
+.cp__header-logo, .cp__right-menu-button {
+  opacity: .6;
 }
 
 /***********/
@@ -278,8 +300,7 @@ mark {
 .ls-block h2,
 .ls-block h3 {
   margin-left: -21px !important;
-  padding-left: 5px;
-  background: white;
+  padding-left: 20px;
 }
 
 .ls-block h1 {
@@ -311,7 +332,7 @@ h1.title {
 .flex-1.journal.page > .flex.flex-col > .content > .flex-1.flex-row.foldable-title {
   padding-bottom: .25rem;
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid #e8e5dee3;
+  border-bottom: 1px solid var(--ls-quaternary-background-color);
 }
 
 /******************************************************************************/
@@ -323,7 +344,7 @@ h1.title {
 }
 
 .doc-mode .block-children {
-  border-left: 1px solid #eee !important;
+  border-left: 1px solid var(--ls-quaternary-background-color) !important;
   margin-left: 24px !important;
 }
 
@@ -336,9 +357,20 @@ h1.title {
   color: #aaa;
 }
 
+.ls-block h1,
+.ls-block h2,
+.ls-block h3,
 .todo .form-checkbox,
 .doing .form-checkbox {
-  background: white;
+  background: var(--ls-primary-background-color);
+}
+
+#right-sidebar .ls-block h1,
+#right-sidebar .ls-block h2,
+#right-sidebar .ls-block h3,
+#right-sidebar .todo .form-checkbox,
+#right-sidebar .doing .form-checkbox {
+  background: var(--ls-secondary-background-color);
 }
 
 .form-checkbox {
@@ -393,3 +425,5 @@ h1.title {
   margin-left: -1px;
   margin-right: 8px !important;
 }
+
+/******************************************************************************/
