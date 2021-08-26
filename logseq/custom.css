@@ -396,29 +396,35 @@ mark {
 /******************************************************************************/
 
 /*
+Remove the block of CSS below in order to see the header handles:
+*/
 .ls-block :is(h1, h2, h3, h4, h5, h6) {
   margin-left: -36px !important;
   padding-left: 20px;
 }
-*/
 
-.ls-block h1 {
-  margin: 0;
-  margin-top: 12px;
+.ls-block h1, .editor-inner textarea.h1 {
+  margin: 0 !important;
+  margin-left: -36px !important;
+  margin-top: 12px !important;
 }
 
 .ls-block h2 {
   margin: 0;
-  margin-top: 9px;
+  margin-top: 12px;
 }
 
-.ls-block h3 {
+.ls-block h3, textarea.h3 {
   margin: 0;
-  margin-top: 6px;
+  margin-top: 12px !important;
+}
+
+.editor-inner .h4, .ls-block h4 {
+  font-size: 1.05em;
+  font-weight: 500;
 }
 
 h1.title {
-  font-weight: 800;
   font-size: 36px;
   width: 100%;
   margin-bottom: 0;
@@ -469,8 +475,13 @@ h1.title {
 .block-highlight,
 .content .selected,
 .content .selected .todo .form-checkbox,
+.content .selected .doing .form-checkbox,
+.content .selected .ls-block :is(h1, h2, h3, h4, h5, h6),
+.selected .block-content :is(h1, h2, h3, h4, h5, h6),
+.content .selected .todo .form-checkbox,
 .content .selected .doing .form-checkbox {
   background-color: #e2f4ff;
+  border-color: #e2f4ff;
 }
 
 #right-sidebar .ls-block h1,
@@ -639,4 +650,9 @@ h1.title {
 
 .block-properties .mr-1 {
   margin-right: 0.5rem;
+}
+
+hr {
+  border-width: 2px;
+  border-color: #444;
 }
