@@ -646,6 +646,8 @@ h1.title {
 .block-properties {
   font-size: .85em;
   font-family: "SF Mono";
+  border: 1px solid white;
+  border-radius: 4px;
 }
 
 .block-properties .mr-1 {
@@ -654,5 +656,10 @@ h1.title {
 
 hr {
   border-width: 2px;
-  border-color: #444;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: 48px;
+  margin-bottom: 40px;
+  width: auto;
+  border-color: #ddd;
 }
