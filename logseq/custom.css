@@ -396,11 +396,31 @@ mark {
 /******************************************************************************/
 
 /*
-Remove the block of CSS below in order to see the header handles:
-*/
+ * Remove the block of CSS below in order to see the header handles:
+ */
 .ls-block :is(h1, h2, h3, h4, h5, h6) {
-  margin-left: -36px !important;
-  padding-left: 20px;
+  // margin-left: -36px !important;
+  // padding-left: 20px;
+  // transition: all 100ms ease-in;
+}
+
+.flex .block-control:hover {
+  background: red;
+}
+
+.flex .bullet-container:hover {
+  background: blue;
+}
+.flex .bullet-container:hover + .flex {
+  border: 3px solid orange;
+}
+// .block-content-wrapper .block-content:hover :is(h1, h2, h3, h4, h5, h6) {
+
+.block-content-wrapper .block-content:hover :is(h1, h2, h3, h4, h5, h6),
+.ls-block:hover .block-content:hover :is(h1, h2, h3, h4, h5, h6) {
+  margin-left: 0 !important;
+  padding-left: 0px;
+  transition: all 100ms ease-in;
 }
 
 .ls-block h1, .editor-inner textarea.h1 {
@@ -644,14 +664,20 @@ h1.title {
 */
 
 .block-properties {
-  font-size: .85em;
-  font-family: "SF Mono";
+  font-size: 0.85em;
   border: 1px solid white;
   border-radius: 4px;
+  padding-bottom: 6px;
+  // font-family: "SF Mono";
 }
 
 .block-properties .mr-1 {
   margin-right: 0.5rem;
+}
+
+.block-properties a {
+  // background: #106ba311;
+  border-bottom: 2px solid #106ba322;
 }
 
 hr {
