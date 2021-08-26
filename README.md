@@ -48,7 +48,7 @@ To combat that, I added some custom CSS to https://twitter.com so I stop making 
 
 It also neatens up the styles and removes some of the modules that I never use.
 
-<img width="70%" src="twitter/twitter.jpg" />
+<img width="70%" src="twitter/twitter.png" />
 
 ## Zoom
 
