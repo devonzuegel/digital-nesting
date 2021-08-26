@@ -1,30 +1,57 @@
+.white-theme,
+html[data-theme='light'] {
+  --ls-primary-background-color: white;
+}
+
+#main-container- {
+  border-top: 34px solid #ff86c166;
+}
+
+#main-container-:before {
+  content: "Real database";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  font-size: .9em;
+  padding: 7px;
+  text-align: center;
+  font-family: "SF Mono";
+  font-weight: bold;
+}
+
+.cp__header, #main-content {
+  background-color: var(--ls-primary-background-color);
+}
+
 :root {
   --color-level-1-custom: rgba(247, 246, 244, .8);
+  --color-level-2-custom: rgba(247, 246, 244, 1);
 }
 
 /********************/
 /** Custom queries **/
 /********************/
 
-// html[data-theme='light']
-#right-sidebar {
+html[data-theme='light'] #right-sidebar {
   background-color: var(--color-level-1-custom);
 }
 
-// html[data-theme='light']
-.color-level .color-level {
-  background-color: rgba(255, 254, 253);
+html[data-theme='light'] .color-level .color-level {
+  background-color: rgba(255, 254, 253) !important;
   border: 1px solid var(--color-level-1);
   border-radius: 8px;
 }
 
-// html[data-theme='light']
-.color-level .color-level .color-level {
+html[data-theme='light'] .color-level .ls-block :is(h1, h2, h3, h4, h5, h6) {
+  background-color: rgba(255, 254, 253) !important;
+}
+
+html[data-theme='light'] .color-level .color-level .color-level {
   background-color: var(--color-level-1);
   border-radius: 8px;
 }
 
-// html[data-theme='light']
+html[data-theme='light']
 .sidebar-item.color-level {
   background: none;
 }
@@ -39,18 +66,23 @@
   margin-left: 12px;
 }
 
+#repo-name {
+  max-width: 17ch;
+  overflow: visible;
+}
+
 .cp__header-logo .svg-shadow {
-  /* Remove the box shadow that comes by default */
+  /* Rec the box shadow that comes by default */
   box-shadow: none;
   filter: none;
 }
 
 .cp__header-logo svg {
-  display: none;
+  // display: none;
 }
 
 .cp__header-logo:before {
-  content: "→ Home";
+  // content: "→ Home";
   font-size: 13px;
   color: var(--ls-icon-color,#045591);
   font-weight: bold;
@@ -66,18 +98,61 @@
 }
 
 /* Inline custom queries */
-html[data-theme='light'] .block-body .custom-query {
+html[data-theme='light'] .block-body .custom-query,
+html[data-theme='light'] .dsl-query {
   background-color: var(--color-level-1-custom);
   border: 1px solid var(--color-level-1);
 }
+html[data-theme='dark'] .block-body .custom-query,
+html[data-theme='dark'] .dsl-query {
+  background-color: var(--color-level-1);
+}
 
-.block-body .custom-query {
+.block-body .custom-query,
+.dsl-query {
   padding-left: 12px;
   padding-right: 12px;
   padding-bottom: 8px;
   padding-top: 10px;
   border-radius: 8px;
   margin-top: 0;
+  font-size: .9em;
+  line-height: 1em;
+}
+
+.custom-query .py-2,
+.dsl-query .py-2 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.custom-query .px-7,
+.dsl-query .px-7 {
+  padding-left: 0;
+}
+
+.custom-query .ml-4,
+.dsl-query .ml-4 {
+  padding-left: 0;
+}
+
+.custom-query .flex.flex-row.align-items.mt-2 {
+  display: none;
+}
+
+/* Override .mt-4 class */
+.dsl-query .mt-4 {
+  margin-top: 0;
+}
+
+.custom-query-title {
+  font-family: "Roboto Mono", SFMono-Regular, SF Mono,Consolas,Liberation Mono,Menlo, monospace;
+  font-size: .9em;
+}
+
+/* Brute force hide the `Table view` option */
+.custom-query-title > .flex.flex-row.align-items.mt-2 {
+  display: none;
 }
 
 /* Today queries */
@@ -118,7 +193,6 @@ html[data-theme='dark'] #today-queries .custom-query {
 }
 
 .custom-query-title {
-  // font-family: 'Roboto Mono' !important;
   font-weight: bolder;
   opacity: .4;
 }
@@ -150,11 +224,19 @@ html[data-theme='light'] .sidebar-item {
 .tag, code, pre {
   // font-family: 'iA Writer Mono V' !important;
   // font-family: 'Roboto Mono' !important;
+  font-family: "Roboto Mono", SFMono-Regular, SF Mono,Consolas,Liberation Mono,Menlo, monospace;
   font-weight: 500;
 }
 
 .tag[data-ref="urgent"] {
   background: rgb(255, 145, 0);
+  color: white;
+  padding: 0 3px;
+  border-radius: 6px;
+}
+
+.tag[data-ref="Pronomos"] {
+  background: #8ca;
   color: white;
   padding: 0 3px;
   border-radius: 6px;
@@ -219,10 +301,17 @@ html[data-theme='light'] .sidebar-item {
 	position: relative;
 }
 
-/* Don't show the page graph button */
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) a:before {
+	color: var(--ls-icon-color,#045591);
+	display: block;
+	position: relative;
+}
+
+/* Don't show the page graph button
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) {
   display: none;
 }
+*/
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(4) > a {
 	color: transparent;
@@ -295,19 +384,23 @@ html[data-theme=light] .todo .form-checkbox:focus {
 }
 
 mark {
-  background: #43b7ff42;
+  border-radius: 8px;
+  background: rgba(0, 230, 181, .4); // #ffaaa1bb; // #43b7ff42;
+  padding-left: 6px;
+  padding-right: 7px;
+  text-shadow: 0 0 7px white;
 }
 
 /******************************************************************************/
 /** Headers *******************************************************************/
 /******************************************************************************/
 
-.ls-block h1,
-.ls-block h2,
-.ls-block h3 {
-  margin-left: -21px !important;
+/*
+.ls-block :is(h1, h2, h3, h4, h5, h6) {
+  margin-left: -36px !important;
   padding-left: 20px;
 }
+*/
 
 .ls-block h1 {
   margin: 0;
@@ -345,27 +438,29 @@ h1.title {
 /** Undo doc mode for now *****************************************************/
 /******************************************************************************/
 
-.doc-mode {
-  margin-left: 0;
-}
+// .doc-mode {
+//   margin-left: 0;
+// }
 
-.doc-mode .block-children {
-  border-left: 1px solid var(--ls-quaternary-background-color) !important;
-  margin-left: 24px !important;
-}
+// .doc-mode .block-children {
+//   border-left: 1px solid var(--ls-quaternary-background-color) !important;
+//   margin-left: 24px !important;
+// }
 
-.doc-mode .hide-inner-bullet .bullet {
-  display: block !important;
-}
+// .doc-mode .hide-inner-bullet .bullet {
+//   display: block !important;
+// }
 
 .done, .done * {
   opacity: 1;
   color: #aaa;
 }
 
-.ls-block h1,
-.ls-block h2,
-.ls-block h3,
+.color-level .ls-block :is(h1, h2, h3, h4, h5, h6) {
+  background: var(--color-level-1);
+}
+
+.ls-block :is(h1, h2, h3, h4, h5, h6),
 .todo .form-checkbox,
 .doing .form-checkbox {
   background: var(--ls-primary-background-color);
@@ -394,11 +489,29 @@ h1.title {
   margin-right: 8px !important;
   margin-left: -22px;
 }
-
 .form-checkbox:hover {
   height: 15.1px;
   width: 15.1px;
   margin-right: 8px !important;
+}
+
+/* In doc mode, don't show the bullet except when hovering over it
+  * directly (i.e. don't show it when hovering over the rest of the
+  * block, only when you're hovering over the bullet itself). */
+.doc-mode .bullet-container {
+  opacity: 0;
+}
+.doc-mode .bullet-container.cursor,
+.doc-mode .bullet-container,
+.doc-mode .bullet {
+  // opacity: 1;
+  margin-right: 0;
+  cursor: move;
+}
+
+/* Override the default behavior so that the block controls are not hidden. */
+.block-control .control-hide {
+  /* display: block; */
 }
 
 /******************************************************************************/
@@ -421,9 +534,10 @@ h1.title {
 }
 
 .bullet-container .bullet {
-  width: 8px;
-  height: 8px;
-  background-color: #999;
+  width: 5px;
+  height: 5px;
+  background-color: #666;
+  border-radius: 10px;
 }
 
 .time-spent a {
@@ -440,3 +554,89 @@ h1.title {
 }
 
 /******************************************************************************/
+/** Show checkboxes even when editing that line *******************************/
+/******************************************************************************/
+
+.todo-block:before {
+  content: "";
+  border: 2px solid #999;
+  border-radius: 2px;
+  height: 15px;
+  width: 15px;
+  margin-right: 8px;
+  margin-top: 5px;
+  margin-left: -22px;
+  background: var(--ls-primary-background-color);
+}
+
+.doing-block:before {
+  content: "";
+  border-radius: 2px;
+  height: 15px;
+  width: 15px;
+  margin-right: 8px;
+  margin-top: 5px;
+  margin-left: -22px;
+  background-color: white;;
+  border: 2px solid rgb(50, 209, 135);
+  border-radius: 13px;
+}
+
+.done-block:before {
+  content: "";
+  border: 2px solid #999;
+  border-radius: 2px;
+  height: 15px;
+  width: 15px;
+  margin-right: 8px;
+  margin-top: 5px;
+  margin-left: -22px;
+  background-color: #999;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='3 3 10 10' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e") !important;
+}
+
+.editor-inner textarea {
+  /*
+  font-family: 'Roboto Mono';
+  font-size: 0.95em;
+  padding-top: 1px;
+  line-height: 1.6em;
+  font-family: 'Anka/Coder Condensed';
+  font-family: "SF Mono";
+  font-weight: 500;
+  color: grey;
+  letter-spacing: -0.3px;
+  border: 2px solid #c0e6fd88;
+  border-radius: 4px;
+  */
+  background: #c0e6fd22;
+  background: #cccccc33;
+  width: calc(100% + 50px);
+  padding: 2px 4px 2px 32px;
+  margin: -2px -4px -2px -32px;
+  color: black;
+}
+
+/* Make sure bullet is on top of `.editor-inner textarea` so that the
+ * background doesn't cover the bullet. 
+ .ls-block .flex-row:first-child {
+   z-index: 1;
+  }
+  */
+
+/*
+.blocks-container .bullet-container,
+.blocks-container .block-content-wrapper
+ {
+  opacity: 0.8;
+}
+*/
+
+.block-properties {
+  font-size: .85em;
+  font-family: "SF Mono";
+}
+
+.block-properties .mr-1 {
+  margin-right: 0.5rem;
+}
