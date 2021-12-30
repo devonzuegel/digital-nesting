@@ -1001,13 +1001,15 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 .bullet-container {
   margin-left: -3px;
   margin-right: 3px;
+  height: 12px;
+  width: 12px;
 }
 
 .bullet-container .bullet {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   background-color: #666;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .time-spent a {
