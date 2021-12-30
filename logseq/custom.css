@@ -1,3 +1,14 @@
+/******************************************************************************/
+/* This is a brute-force way of minimizing the flash when switching themes. */
+/******************************************************************************/
+
+* {
+  transition: background 100ms ease-in-out !important;
+}
+
+/******************************************************************************/
+/******************************************************************************/
+
 .white-theme,
 html[data-theme='light'] {
   --ls-primary-background-color: white;
@@ -8,32 +19,38 @@ html[data-theme='light'] {
 }
 
 #main-container-:before {
-  content: "Real database";
+  content: 'Real database';
   position: absolute;
   top: 0;
   width: 100%;
-  font-size: .9em;
+  font-size: 0.9em;
   padding: 7px;
   text-align: center;
-  font-family: "SF Mono";
+  font-family: 'SF Mono';
   font-weight: bold;
 }
 
-.cp__header, #main-content {
-  background-color: var(--ls-primary-background-color);
+:root {
+  --color-level-1-custom: var(--color-level-1);
+  --color-level-2-custom: var(--color-level-2);
+  --ls-primary-background-color--dark: var(-ls-block-bullet-color);
 }
 
-:root {
-  --color-level-1-custom: rgba(247, 246, 244, .8);
-  --color-level-2-custom: rgba(247, 246, 244, 1);
+.cp__sidebar-main-content {
+  max-width: calc(var(--ls-main-content-max-width) + 50px);
 }
 
 /********************/
 /** Custom queries **/
 /********************/
 
+.custom-query {
+  margin-left: -28px;
+}
+
 html[data-theme='light'] #right-sidebar {
   background-color: var(--color-level-1-custom);
+  border-left: 1px solid var(--color-level-2-custom);
 }
 
 html[data-theme='light'] .color-level .color-level {
@@ -43,7 +60,15 @@ html[data-theme='light'] .color-level .color-level {
 }
 
 html[data-theme='light'] .color-level .ls-block :is(h1, h2, h3, h4, h5, h6) {
-  background-color: rgba(255, 254, 253) !important;
+  background-color: var(--color-level-1-custom) !important;
+}
+
+html[data-theme='light']
+  .references-blocks
+  .color-level
+  .ls-block
+  :is(h1, h2, h3, h4, h5, h6) {
+  background-color: white !important;
 }
 
 html[data-theme='light'] .color-level .color-level .color-level {
@@ -51,8 +76,7 @@ html[data-theme='light'] .color-level .color-level .color-level {
   border-radius: 8px;
 }
 
-html[data-theme='light']
-.sidebar-item.color-level {
+html[data-theme='light'] .sidebar-item.color-level {
   background: none;
 }
 
@@ -60,10 +84,6 @@ html[data-theme='light']
 #repo-switch .dropdown-caret,
 #repo-switch .repo-plus {
   display: none;
-}
-
-#repo-switch {
-  margin-left: 12px;
 }
 
 #repo-name {
@@ -77,19 +97,19 @@ html[data-theme='light']
   filter: none;
 }
 
-.cp__header-logo svg {
-  // display: none;
-}
+// .cp__header-logo svg {
+//   display: none;
+// }
 
 .cp__header-logo:before {
   // content: "→ Home";
   font-size: 13px;
-  color: var(--ls-icon-color,#045591);
+  color: var(--ls-icon-color, #045591);
   font-weight: bold;
 }
 
 #search-field::placeholder {
-  color: var(--ls-icon-color,#045591);
+  color: var(--ls-icon-color, #045591);
   opacity: 0.6;
 }
 
@@ -116,8 +136,18 @@ html[data-theme='dark'] .dsl-query {
   padding-top: 10px;
   border-radius: 8px;
   margin-top: 0;
-  font-size: .9em;
-  line-height: 1em;
+  font-size: 0.9em;
+}
+
+.custom-query .my-2.ml-4,
+.dsl-query .my-2.ml-4 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.custom-query .ml-4,
+.dsl-query .ml-4 {
+  margin-left: 0;
 }
 
 .custom-query .py-2,
@@ -145,19 +175,84 @@ html[data-theme='dark'] .dsl-query {
   margin-top: 0;
 }
 
+.custom-query #lazy-blocks {
+  margin: 0 10px 5px -16px;
+}
+
+.embed-block {
+  margin-left: -10px;
+}
+.embed-block .px-3.pt-1.pb-2 {
+  padding: 0;
+  padding-left: 12px;
+}
+.embed-block #lazy-blocks .items-center {
+  display: none;
+}
+.embed-block .blocks-container #lazy-blocks {
+  margin-left: 8px;
+}
+
+.custom-query .ls-block:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.custom-query .ls-block[data-refs-self*='"todo"'],
+.custom-query .ls-block[data-refs-self*='"doing"'],
+.custom-query .ls-block[data-refs-self*='"done"'],
+.custom-query .ls-block[data-refs-self*='"canceled"'] {
+  margin-bottom: 0;
+}
+
+.custom-query .ls-block[data-refs-self*='"todo"'] .block-parents:not(:first-child),
+.custom-query .ls-block[data-refs-self*='"doing"'] .block-parents:not(:first-child),
+.custom-query .ls-block[data-refs-self*='"done"'] .block-parents:not(:first-child),
+.custom-query .ls-block[data-refs-self*='"canceled"'] .block-parents:not(:first-child) {
+  margin-top: 16px;
+}
+
+/* this hides TODOs' paths to make the custom query blocks a little more streamlined */
+// .custom-query .block-parents {
+//   display: none;
+// }
+
+.custom-query .initial {
+  // margin-top: -26px;
+}
+
+// /* remove the page title from {{query ... }} results */
+// .custom-query .initial .items-center .page-ref {
+//   display: none;
+// }
+
 .custom-query-title {
-  font-family: "Roboto Mono", SFMono-Regular, SF Mono,Consolas,Liberation Mono,Menlo, monospace;
-  font-size: .9em;
+  font-family: 'Roboto Mono', SFMono-Regular, SF Mono, Consolas, Liberation Mono,
+    Menlo, monospace;
+  font-size: 0.9em;
+  margin-left: 10px !important;
+  // position: absolute;
+  // right: 24px;
+  // width: 200px;
+  // text-align: right;
+}
+
+// hide title for custom queries (e.g. on Home page)
+.custom-query-title .title-text {
+  // display: none;
 }
 
 /* Brute force hide the `Table view` option */
 .custom-query-title > .flex.flex-row.align-items.mt-2 {
-  display: none;
+  // display: none;
+}
+
+.custom-query .results-count {
+  margin-left: 1.1rem;
 }
 
 /* Today queries */
 #today-queries {
-  font-size: .9em;
+  font-size: 0.9em;
   margin-left: -24px;
   border-radius: 8px;
   margin-top: 48px;
@@ -174,8 +269,8 @@ html[data-theme='light'] #today-queries .custom-query {
 }
 
 html[data-theme='dark'] #today-queries .custom-query {
-  background-color: rgba(255, 255, 255,.04);
-  border: 3px solid rgba(255, 255, 255,.05);
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 3px solid rgba(255, 255, 255, 0.05);
 }
 
 #today-queries .custom-query {
@@ -194,7 +289,7 @@ html[data-theme='dark'] #today-queries .custom-query {
 
 .custom-query-title {
   font-weight: bolder;
-  opacity: .4;
+  opacity: 0.6;
 }
 
 /*******************/
@@ -210,7 +305,7 @@ html[data-theme='light'] html #left-container::-webkit-scrollbar {
 }
 
 html[data-theme='light'] html .cp__right-sidebar-scollable::-webkit-scrollbar {
-  background-color: rgb(247, 246, 244, .8);
+  background-color: rgb(247, 246, 244, 0.8);
 }
 
 html[data-theme='light'] .sidebar-item {
@@ -221,46 +316,155 @@ html[data-theme='light'] .sidebar-item {
 /** Tags (e.g. #urgent) **/
 /*************************/
 
-.tag, code, pre {
+a.tag {
+  /*
+  float: right;
+  */
+  margin-left: 4px;
+  opacity: 80%;
+  border: 1px solid var(--ls-tag-text-color, #045591);
+  color: var(--ls-tag-text-color, #045591);
+  transition: border-color background-color opacity linear 500ms;
+  font-size: 0.7em;
+}
+
+.tag:hover {
+  color: var(--ls-tag-text-hover-color, #045591);
+  border: 1px solid var(--ls-tag-text-hover-color, #045591);
+  opacity: 100%;
+  transition: background-color opacity linear 500ms;
+}
+
+.tag,
+code,
+pre {
   // font-family: 'iA Writer Mono V' !important;
-  // font-family: 'Roboto Mono' !important;
-  font-family: "Roboto Mono", SFMono-Regular, SF Mono,Consolas,Liberation Mono,Menlo, monospace;
+  font-family: 'Roboto Mono', SFMono-Regular, SF Mono, Consolas, Liberation Mono,
+    Menlo, monospace;
   font-weight: 500;
 }
 
-.tag[data-ref="urgent"] {
-  background: rgb(255, 145, 0);
-  color: white;
+html[data-theme='light'] .tag {
+  // color: white !important;
   padding: 0 3px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
-.tag[data-ref="Pronomos"] {
-  background: #8ca;
-  color: white;
+html[data-theme='dark'] .tag {
+  // color: black !important;
+  // color: white !important;
+  // box-shadow: 0 0 2px white;
   padding: 0 3px;
-  border-radius: 6px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.tag[data-ref="skipped"] {
-  background: #444;
-  color: white;
+.tag[data-ref='to-read'] {
+  border: 1px solid rgb(247, 126, 255);
+  color: rgb(247, 126, 255) !important;
+  background-color: transparent;
   padding: 0 3px;
-  border-radius: 6px;
+  border-radius: 2px;
+}
+.tag[data-ref='to-read']:before {
+  content: '📚';
+  margin-right: 4px;
 }
 
-.tag[data-ref="good-for-sleepy"] {
-  background: rgb(65, 17, 141);
-  color: white;
+.tag[data-ref='pdf'],
+.tag[data-ref='paper'] {
+  border: 1px solid rgb(81, 158, 255);
+  color: rgb(81, 158, 255) !important;
+  background-color: transparent;
   padding: 0 3px;
-  border-radius: 6px;
+  border-radius: 2px;
+}
+.tag[data-ref='pdf']:before,
+.tag[data-ref='paper']:before {
+  content: '📄';
+  margin-right: 4px;
 }
 
-.tag[data-ref="low-priority"] {
-  background: rgb(186, 174, 204);
-  color: white;
+.tag[data-ref='book'] {
+  color: rgb(55, 145, 100) !important;
+  border: 1px solid rgb(55, 145, 100);
+  background-color: transparent;
   padding: 0 3px;
-  border-radius: 6px;
+  border-radius: 2px;
+}
+.tag[data-ref='book']:before {
+  content: '📗';
+  margin-right: 4px;
+}
+
+.tag[data-ref='meeting'] {
+  background-color: transparent;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+.tag[data-ref='meeting']:before {
+  content: '📆';
+  margin-right: 4px;
+}
+
+.tag[data-ref='important'],
+.tag[data-ref='urgent'] {
+  border: 1px solid rgb(255, 145, 0);
+  color: rgb(255, 145, 0);
+  transition: border-color background-color opacity linear 500ms;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+.tag[data-ref='gbpa'] {
+  /* GBPA */
+  border-color: #73b8ae;
+  color: #73b8ae;
+  padding: 0 3px;
+  border-radius: 2px;
+  opacity: 1;
+}
+
+.tag[data-ref='card'] {
+  border-color: rgb(158, 189, 198);
+  color: rgb(158, 189, 198);
+  padding: 0 3px;
+  border-radius: 2px;
+  opacity: 1;
+}
+
+.tag[data-ref='Pronomos'] {
+  color: #8ca;
+  border-color: #8ca;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+.tag[data-ref='skipped'] {
+  border-color: #777;
+  color: #777;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+.tag[data-ref='good-for-sleepy'] {
+  border-color: rgb(65, 17, 141);
+  color: rgb(65, 17, 141);
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+.tag[data-ref='low-priority'] {
+  border-color: rgb(186, 174, 204);
+  color: rgb(186, 174, 204);
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+ins,
+.is-paragraph,
+.raw_html {
+  display: inline;
 }
 
 /*******************/
@@ -276,56 +480,64 @@ html[data-theme='light'] .sidebar-item {
 }
 .cp__right-sidebar-settings > .ml-4.text-sm:hover {
   opacity: 1;
-  transition: opacity .3s ease-in;
+  transition: opacity 0.3s ease-in;
 }
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) > a {
-	color: transparent;
+  color: transparent;
 }
 
+/*
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) a:before {
-	content: "→ Favorites";
+  content: "→ Favorites";
 	color: var(--ls-icon-color,#045591);
 	display: block;
 	position: relative;
-}
-
-.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) > a {
-	color: transparent;
-}
-
-.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) a:before {
-	content: "→ ‎Recent";
-	color: var(--ls-icon-color,#045591);
-	display: block;
-	position: relative;
-}
-
-.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) a:before {
-	color: var(--ls-icon-color,#045591);
-	display: block;
-	position: relative;
-}
-
-/* Don't show the page graph button
-.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) {
-  display: none;
 }
 */
 
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(1) a {
+  display: none; /* Not necessary since Home serves this purpose now. */
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) > a {
+  color: transparent;
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) a:before {
+  content: '→ ‎Recent';
+  color: var(--ls-icon-color, #045591);
+  display: block;
+  position: relative;
+  margin-left: -12px;
+}
+
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) a:before {
+  color: var(--ls-icon-color, #045591);
+  display: block;
+  position: relative;
+}
+
+/* Don't show the page graph button
+*/
+.cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) {
+  display: none;
+}
+
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(4) > a {
-	color: transparent;
+  color: transparent;
 }
 
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(4) a:before {
-	content: "→ ‎Help";
-	color: var(--ls-icon-color,#045591);
-	display: block;
-	position: relative;
+  content: '→ ‎Help';
+  color: var(--ls-icon-color, #045591);
+  display: block;
+  position: relative;
 }
 
-.cp__header-logo, .cp__right-menu-button {
-  opacity: .6;
+.cp__header-logo,
+.cp__right-menu-button {
+  opacity: 0.6;
 }
 
 /***********/
@@ -333,9 +545,9 @@ html[data-theme='light'] .sidebar-item {
 /***********/
 
 .form-checkbox {
-  color: var(--ls-page-checkbox-color,#6093a0);
+  color: var(--ls-page-checkbox-color, #6093a0);
   background: none;
-  border: 2px solid var(--ls-page-checkbox-color,#6093a0);
+  border: 2px solid var(--ls-page-checkbox-color, #6093a0);
   border-radius: 2px;
 }
 
@@ -348,7 +560,8 @@ html[data-theme='light'] .sidebar-item {
   border-radius: 13px;
 }
 
-.done .form-checkbox {
+.done .form-checkbox,
+.canceled .form-checkbox {
   border-color: #999;
 }
 
@@ -357,7 +570,9 @@ html[data-theme='light'] .sidebar-item {
 }
 
 .marker-switch {
-  display: none;
+  opacity: 0.3;
+  pointer-events: none;
+  // display: none;
 }
 
 .form-checkbox:checked {
@@ -369,26 +584,103 @@ html[data-theme='light'] .sidebar-item {
   border-color: #999;
 }
 
-html[data-theme=light] .done .form-checkbox:focus {
+html[data-theme='light'] .done .form-checkbox:focus {
   border-color: #999; // #555;
   background-color: #999; // #555;
   transition: all 100ms;
 }
 
-html[data-theme=light] .todo .form-checkbox:focus {
+html[data-theme='light'] .todo .form-checkbox:focus {
   border-color: #999; // #555;
 }
 
-.form-checkbox:focus {
-  // transition: border-color 1000ms, ;
-}
+// .form-checkbox:focus {
+//   transition: border-color 1000ms, ;
+// }
 
 mark {
-  border-radius: 8px;
-  background: rgba(0, 230, 181, .4); // #ffaaa1bb; // #43b7ff42;
-  padding-left: 6px;
-  padding-right: 7px;
+  border-radius: 3px;
+  background: #aee8efbb;
+  padding-left: 4px;
+  padding-right: 4px;
   text-shadow: 0 0 7px white;
+}
+
+mark code {
+  background: #aee8ef;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-weight: bolder;
+}
+
+/******************************************************************************/
+/** Blockquote ****************************************************************/
+/******************************************************************************/
+
+.block-body blockquote:first-child,
+.block-body pre:first-child {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: -2px;
+  margin-bottom: -2px;
+  // margin-bottom: 4px;
+  // margin-top: 4px;
+}
+
+blockquote {
+  padding: 4px 12px;
+  // background: #f7f5f1;
+  background: #fbfaf8;
+  // filter: brightness(98%);
+  filter: saturate(120%) brightness(98%);
+}
+
+.ls-block {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/******************************************************************************/
+/** Timestamps (deadline, etc) ************************************************/
+/******************************************************************************/
+
+.timestamp {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.timestamp .timestamp-label {
+  text-transform: lowercase;
+}
+
+.custom-query .timestamp {
+  float: right;
+  margin-top: -21px;
+  margin-right: -12px;
+  overflow-x: hidden;
+  text-indent: -32px;
+}
+.custom-query .timestamp * {
+  text-indent: 0;
+}
+
+.custom-query .timestamp a {
+  font-size: .8em;
+}
+
+.custom-query .timestamp .timestamp-label {
+  display: none;
+}
+
+.custom-query .drawer[data-drawer-name='logbook'] {
+  display: none;
+}
+
+/* Remote < and > before/after the timestap */
+.time-start,
+.time-stop {
+  display: none;
 }
 
 /******************************************************************************/
@@ -397,24 +689,32 @@ mark {
 
 /*
  * Remove the block of CSS below in order to see the header handles:
- */
 .ls-block :is(h1, h2, h3, h4, h5, h6) {
-  // margin-left: -36px !important;
-  // padding-left: 20px;
-  // transition: all 100ms ease-in;
+  margin-left: -36px !important;
+  padding-left: 20px;
+  transition: all 100ms ease-in-out !important;
 }
 
-.flex .block-control:hover {
-  background: red;
+.ls-block :is(h1, h2, h3, h4, h5, h6):hover {
+  transition-delay: 1s !important;
+}
+*/
+
+.ls-block .collapsed :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 12px;
 }
 
-.flex .bullet-container:hover {
-  background: blue;
-}
+// .flex .block-control:hover {
+//   background: red;
+// }
+
+// .flex .bullet-container:hover {
+//   background: blue;
+// }
+
 .flex .bullet-container:hover + .flex {
   border: 3px solid orange;
 }
-// .block-content-wrapper .block-content:hover :is(h1, h2, h3, h4, h5, h6) {
 
 .block-content-wrapper .block-content:hover :is(h1, h2, h3, h4, h5, h6),
 .ls-block:hover .block-content:hover :is(h1, h2, h3, h4, h5, h6) {
@@ -423,23 +723,34 @@ mark {
   transition: all 100ms ease-in;
 }
 
-.ls-block h1, .editor-inner textarea.h1 {
+.ls-block h1,
+.editor-inner textarea.h1 {
   margin: 0 !important;
   margin-left: -36px !important;
   margin-top: 12px !important;
 }
 
-.ls-block h2 {
+.ls-block h2,
+.editor-inner textarea.h2 {
   margin: 0;
   margin-top: 12px;
 }
 
-.ls-block h3, textarea.h3 {
-  margin: 0;
-  margin-top: 12px !important;
+.ls-block h3,
+.editor-inner textarea.h3 {
+  margin: 12px 0 4px 0 !important;
+  padding-top: 0;
+  padding-bottom: 0;
+  // border: 1px solid green;
+  border: none !important;
 }
 
-.editor-inner .h4, .ls-block h4 {
+.editor-inner textarea.h3 {
+  margin-left: -41px !important;
+}
+
+.editor-inner .h4,
+.ls-block h4 {
   font-size: 1.05em;
   font-weight: 500;
 }
@@ -450,36 +761,79 @@ h1.title {
   margin-bottom: 0;
 }
 
+#left-sidebar .page-icon,
+.title .page-icon {
+  font-family: "Roboto Mono"; /* this is to make the ☀️ emoji render properly */
+}
+
 /* This should only apply to the title row, but I couldn't find a good selector
  * for it. It appears that it's the only thing that has these 3 classes, so it
  * seems fine for now. */
 .flex.flex-row.space-between,
 .flex-1.journal.page > .flex.flex-col > .content > .flex-1.flex-row.foldable-title {
-  padding-bottom: .25rem;
+  padding-bottom: 0.25rem;
   margin-bottom: 1.25rem;
   border-bottom: 1px solid var(--ls-quaternary-background-color);
 }
 
 /******************************************************************************/
+/** Lists *********************************************************************/
+/******************************************************************************/
+
+// .block-body dl > li,
+// .block-body ol > li,
+// .block-body ul > li {
+//   margin: 0;
+// }
+
+// .block-body dl>li, .block-body ol>li, .block-body ul>li>p {
+//   margin-left: 12px;
+// }
+
+// .block-body ol > li > p {
+//   color: purple;
+// // }
+// .block-body ol > li::marker {
+// //   margin-left: -24px;
+//   // background: var(--ls-primary-background-color);
+//   //   color: red;
+// }
+
+// .block-body ol > li {
+//   background: var(--ls-primary-background-color);
+//   margin-left: -24px;
+// }
+
+// .block-body ol > li > p {
+//   margin-left: 8px;
+// }
+
+/******************************************************************************/
 /** Undo doc mode for now *****************************************************/
 /******************************************************************************/
 
-// .doc-mode {
-//   margin-left: 0;
-// }
+/*
+.doc-mode {
+  margin-left: 0;
+}
+.doc-mode .block-children {
+  border-left: 1px solid var(--ls-quaternary-background-color) !important;
+  margin-left: 24px !important;
+}
+.doc-mode .hide-inner-bullet .bullet {
+  display: block !important;
+}
+*/
 
-// .doc-mode .block-children {
-//   border-left: 1px solid var(--ls-quaternary-background-color) !important;
-//   margin-left: 24px !important;
-// }
-
-// .doc-mode .hide-inner-bullet .bullet {
-//   display: block !important;
-// }
-
-.done, .done * {
+.done,
+.done *:not(a) {
   opacity: 1;
   color: #aaa;
+}
+
+.done,
+.done *:not(.tag) {  /* make the strikethrough grey even if text is not grey */
+  text-decoration: #bbb 2px line-through !important;
 }
 
 .color-level .ls-block :is(h1, h2, h3, h4, h5, h6) {
@@ -492,16 +846,29 @@ h1.title {
   background: var(--ls-primary-background-color);
 }
 
-.block-highlight,
-.content .selected,
-.content .selected .todo .form-checkbox,
-.content .selected .doing .form-checkbox,
-.content .selected .ls-block :is(h1, h2, h3, h4, h5, h6),
-.selected .block-content :is(h1, h2, h3, h4, h5, h6),
-.content .selected .todo .form-checkbox,
-.content .selected .doing .form-checkbox {
-  background-color: #e2f4ff;
-  border-color: #e2f4ff;
+html[data-theme='light'] .block-highlight,
+html[data-theme='light'] .content .selected,
+html[data-theme='light'] .content .selected .todo .form-checkbox,
+html[data-theme='light'] .content .selected .doing .form-checkbox,
+html[data-theme='light'] .content .selected .ls-block :is(h1, h2, h3, h4, h5, h6),
+html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6),
+html[data-theme='light'] .content .selected .todo .form-checkbox,
+html[data-theme='light'] .content .selected .doing .form-checkbox {
+  background-color: #ecf6fe;
+  background-color: #e3f5ff;
+  transition: ease-in 100ms;
+}
+
+html[data-theme='light'] .block-highlight,
+html[data-theme='light'] .content .selected,
+html[data-theme='light'] .content .selected .ls-block :is(h1, h2, h3, h4, h5, h6),
+html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
+  border-color: #ecf6fe;
+  border-color: #e3f5ff;
+}
+
+.selected {
+  border-radius: 6px;
 }
 
 #right-sidebar .ls-block h1,
@@ -513,8 +880,8 @@ h1.title {
 }
 
 .form-checkbox {
-  height: .88em;
-  width: .9em;
+  height: 0.88em;
+  width: 0.9em;
   height: 15px;
   width: 15px;
   margin-right: 8px !important;
@@ -541,18 +908,90 @@ h1.title {
 }
 
 /* Override the default behavior so that the block controls are not hidden. */
-.block-control .control-hide {
-  /* display: block; */
-}
+// .block-control .control-hide {
+//   /* display: block; */
+// }
 
 /******************************************************************************/
 
-.extensions__code>.CodeMirror {
+.display-as--bullet .bullet {
+  opacity: 1;
+}
+
+.display-as--doc .bullet {
+  opacity: 0;
+}
+
+.display-children-as--bullet .block-children .display-as--doc .bullet,
+.display-as--doc .bullet,
+.display-children-as--doc .ls-block:not(.display-as--bullet) .bullet,
+.display-children-as--bullet .display-as--doc .block-children .bullet,
+.display-children-as--doc .display-children-as--bullet .ls-block.display-as--doc .bullet,
+.display-children-as--bullet .display-children-as--doc .ls-block:not(.display-as--bullet) .bullet {  
+  opacity: 0;
+}
+
+
+.display-as--bullet :not(.display-as--doc) .bullet,
+.display-children-as--bullet .ls-block :not(.display-as--doc) .bullet,
+.display-children-as--doc .display-as--bullet .block-children .bullet,
+.display-children-as--bullet .display-children-as--doc .ls-block.display-as--bullet .bullet,
+.display-children-as--doc .display-children-as--bullet .ls-block:not(.display-as--doc) .bullet {
+  opacity: 1;
+}
+
+// .display-as--doc .bullet,
+// .display-as--doc .display-as--bullet .display-as--doc .bullet,
+// .display-as--doc .display-as--bullet .display-as--doc .display-as--bullet .display-as--doc .bullet,
+// .display-as--doc .display-as--bullet .display-as--doc .display-as--bullet .display-as--doc .display-as--bullet .display-as--doc .bullet,
+// .display-children-as--doc .bullet,
+// .display-children-as--doc .display-children-as--bullet .display-children-as--doc .bullet,
+// .display-children-as--doc .display-children-as--bullet .display-children-as--doc .display-children-as--bullet .display-children-as--doc .bullet,
+// .display-children-as--doc .display-children-as--bullet .display-children-as--doc .display-children-as--bullet .display-children-as--doc .display-children-as--bullet .display-children-as--doc .bullet {
+//   opacity: 0;
+// }
+
+// .display-as--bullet .bullet,
+// .display-as--bullet .display-as--doc .display-as--bullet .bullet,
+// .display-as--bullet .display-as--doc .display-as--bullet .display-as--doc .display-as--bullet .bullet,
+// .display-as--bullet .display-as--doc .display-as--bullet .display-as--doc .display-as--bullet .display-as--doc .display-as--bullet .bullet,
+// .display-children-as--bullet .bullet,
+// .display-children-as--bullet .display-children-as--doc .display-children-as--bullet .bullet,
+// .display-children-as--bullet .display-children-as--doc .display-children-as--bullet .display-children-as--doc .display-children-as--bullet .bullet,
+// .display-children-as--bullet .display-children-as--doc .display-children-as--bullet .display-children-as--doc .display-children-as--bullet .display-children-as--doc .display-children-as--doc .bullet {
+//   opacity: 1;
+// }
+
+// .display-as--doc > .block-self .bullet,
+// .display-as--doc > .block-children .bullet,
+// .display-as--bullet .display-as--doc > .block-children .bullet,
+// .display-children-as--doc > .block-children .bullet {
+//   opacity: 0;
+//   // .display-children-as--doc .ls-block .bullet ,
+//   // .display-children-as--bullet .display-as--doc .bullet,
+//   // .display-children-as--bullet .display-as--doc .display-children-as--bullet .display-as--doc .bullet,
+// }
+
+// // .display-children-as--bullet .display-as--doc .display-children-as--bullet .bullet,
+// // .display-children-as--bullet .display-as--doc .display-children-as--bullet .display-as--doc .display-as--bullet .bullet,
+// // .display-as--bullet :not(.display-as--doc) .bullet,
+// // .display-children-as--bullet .ls-block :not(.display-as--doc) .bullet,
+// .display-as--bullet > .block-self .bullet,
+// .display-as--bullet > .block-children .bullet,
+// .display-as--doc .display-as--bullet > .block-children .bullet,
+// .display-children-as--bullet > .block-children .bullet {
+//   opacity: 1;
+// }
+
+/******************************************************************************/
+
+.extensions__code > .CodeMirror {
   // width: 97% !important;
   // border: 3px solid orange;
 }
 
-.CodeMirror pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like,
+.CodeMirror pre.CodeMirror-line,
+.CodeMirror pre.CodeMirror-line-like,
 .CodeMirror * {
   word-wrap: normal !important;
   word-break: break-word;
@@ -568,7 +1007,7 @@ h1.title {
   width: 5px;
   height: 5px;
   background-color: #666;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .time-spent a {
@@ -576,12 +1015,14 @@ h1.title {
   cursor: default;
   color: #444;
   font-size: 13px;
-  font-family: "Roboto Mono";
+  font-family: 'Roboto Mono';
 }
 
-.block-control, .block-control:hover {
+.block-control,
+.block-control:hover {
   margin-left: -1px;
   margin-right: 8px !important;
+  margin-right: 0 !important;
 }
 
 /******************************************************************************/
@@ -589,7 +1030,7 @@ h1.title {
 /******************************************************************************/
 
 .todo-block:before {
-  content: "";
+  content: '';
   border: 2px solid #999;
   border-radius: 2px;
   height: 15px;
@@ -601,20 +1042,20 @@ h1.title {
 }
 
 .doing-block:before {
-  content: "";
+  content: '';
   border-radius: 2px;
   height: 15px;
   width: 15px;
   margin-right: 8px;
   margin-top: 5px;
   margin-left: -22px;
-  background-color: white;;
+  background-color: white;
   border: 2px solid rgb(50, 209, 135);
   border-radius: 13px;
 }
 
 .done-block:before {
-  content: "";
+  content: '';
   border: 2px solid #999;
   border-radius: 2px;
   height: 15px;
@@ -626,30 +1067,37 @@ h1.title {
   background-image: url("data:image/svg+xml,%3csvg viewBox='3 3 10 10' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e") !important;
 }
 
-.editor-inner textarea {
-  /*
-  font-family: 'Roboto Mono';
-  font-size: 0.95em;
-  padding-top: 1px;
-  line-height: 1.6em;
-  font-family: 'Anka/Coder Condensed';
-  font-family: "SF Mono";
-  font-weight: 500;
-  color: grey;
-  letter-spacing: -0.3px;
-  border: 2px solid #c0e6fd88;
-  border-radius: 4px;
-  */
+html[data-theme='light'] .editor-inner textarea {
+  // background: #c0e6fd22;
+  // background: #cccccc33;
+  // background: #e3f5ff;
+  background: #eef8ff;
+}
+
+html[data-theme='dark'] .editor-inner textarea {
   background: #c0e6fd22;
-  background: #cccccc33;
+}
+
+.editor-inner textarea {
   width: calc(100% + 50px);
-  padding: 2px 4px 2px 32px;
-  margin: -2px -4px -2px -32px;
+}
+
+textarea::selection {
+  background-color: #cee8ef;
   color: black;
 }
 
+html[data-theme='light'] .editor-inner textarea {
+  color: black;
+}
+
+html[data-theme='dark'] .editor-inner textarea {
+  color: white;
+  opacity: 0.8;
+}
+
 /* Make sure bullet is on top of `.editor-inner textarea` so that the
- * background doesn't cover the bullet. 
+ * background doesn't cover the bullet.
  .ls-block .flex-row:first-child {
    z-index: 1;
   }
@@ -663,12 +1111,51 @@ h1.title {
 }
 */
 
+/* TODO: build a toggle */
+.selected .block-properties.page-properties {
+  background-color: #e3f5ff !important;
+}
+
+.block-properties.page-properties,
+.block-properties.page-properties .page-property-key {
+  color: var(--ls-block-ref-link-text-color);
+  color: var(--ls-block-bullet-border-color);
+  color: var(--ls-icon-color);
+}
+
+.block-properties.page-properties {
+  cursor: pointer;
+  background-color: var(--ls-primary-background-color) !important;
+}
+
+// #main-content-container .block-properties.page-properties {
+//   margin-left: -56px;
+//   padding-left: 32px;
+
+//   margin-right: -56px;
+//   padding-right: 32px;
+
+//   margin-top: -16px;
+//   padding-top: 16px;
+
+//   padding-bottom: 64px !important;
+//   padding-bottom: 40px !important;
+//   margin-bottom: -8px;
+// }
+
+.editor-inner textarea.page-properties {
+  font-size: 0.8em;
+  font-family: 'Roboto Mono';
+  margin-bottom: -8px;
+}
+
 .block-properties {
-  font-size: 0.85em;
-  border: 1px solid white;
+  font-size: 0.7em;
   border-radius: 4px;
-  padding-bottom: 6px;
-  // font-family: "SF Mono";
+  padding: 4px 4px 6px 6px;
+  // border: 1px solid var(--color-level-3);
+  font-family: 'Roboto Mono';
+  background: none;
 }
 
 .block-properties .mr-1 {
@@ -676,16 +1163,396 @@ h1.title {
 }
 
 .block-properties a {
-  // background: #106ba311;
   border-bottom: 2px solid #106ba322;
 }
 
-hr {
-  border-width: 2px;
+/* Don't show metadata when the bullet is collapsed. */
+#main-content .collapsed .block-properties {
+  display: none;
+}
+
+.block-body hr {
+  /*
   margin-left: -20px;
   margin-right: -20px;
   margin-top: 48px;
   margin-bottom: 40px;
+  */
+  border-width: 1px;
+  margin: 12px -16px 0 -20px;
+  z-index: -1;
+  line-height: 1;
   width: auto;
   border-color: #ddd;
+}
+
+/*****/
+
+.twitter-tweet.twitter-tweet-rendered {
+  margin-top: 4px !important;
+  max-width: 300px !important;
+}
+.twitter-tweet.twitter-tweet-rendered iframe {
+  margin: 0;
+}
+
+/******************************************************************************/
+/*** Spaced repetition cards review widget ************************************/
+/******************************************************************************/
+
+#preview-all-cards {
+  display: none;
+}
+
+// // Lowercase the left navbar
+// .nav-content-item .hd .uppercase,
+// .nav-content-item .header,
+// nav {
+//   text-transform: capitalize !important;
+//   text-transform: lowercase !important;
+// }
+
+// /******************************************************************************/
+// /*** Nested bullet path *******************************************************/
+// /******************************************************************************/
+
+// .dark-theme .image-resize {
+//   filter: brightness(0.8) saturate(85%);
+// }
+
+// /* Block bullet path should only show in a nested block */
+// .ls-block {
+//   /* Fix for headings like h1, h2 etc */
+//   /* Basic "curve" */
+//   /* Fix multi-line blocks with children */
+// }
+// .ls-block .bullet {
+//   background-color: var(--ls-block-bullet-active-color);
+//   box-shadow: 0 0 0 1px var(--ls-block-bullet-active-color);
+// }
+// .ls-block div.items-center {
+//   position: relative;
+//   height: 26px !important;
+// }
+// .ls-block > .items-baseline {
+//   align-items: initial;
+// }
+// .ls-block:not(:focus-within) .bullet {
+//   background-color: var(--ls-block-bullet-color);
+//   transform: scale(1);
+//   box-shadow: none;
+// }
+// .ls-block:not(:focus-within) > .items-baseline {
+//   align-items: baseline;
+// }
+// .ls-block .ls-block > div > div.items-center::before {
+//   pointer-events: none;
+//   content: "";
+//   left: calc(var(--ls-block-bullet-threading-width) * -1);
+//   right: 6px;
+//   top: calc(-50% + var(--ls-block-bullet-threading-width) * 0.5 - 1px);
+//   bottom: 50%;
+//   /* shift left 1px for border */
+//   position: absolute;
+//   border-left: var(--ls-block-bullet-threading-width) solid transparent;
+//   border-bottom: var(--ls-block-bullet-threading-width) solid transparent;
+//   border-bottom-left-radius: 10px;
+// }
+// .ls-block .ls-block:focus-within > div > div.items-center::before {
+//   border-color: var(--ls-block-bullet-active-color);
+// }
+// .ls-block .block-children > .ls-block::before {
+//   pointer-events: none;
+//   content: "";
+//   top: -1rem;
+//   bottom: 0;
+//   border-left: var(--ls-block-bullet-threading-width) solid transparent;
+//   left: calc(var(--ls-block-bullet-threading-width) * -1);
+//   position: absolute;
+// }
+// .ls-block .block-children:focus-within > .ls-block:not(:focus-within)::before {
+//   border-color: var(--ls-block-bullet-active-color);
+// }
+// .ls-block .block-children:focus-within > .ls-block:focus-within ~ .ls-block::before {
+//   border-color: transparent;
+// }
+// .ls-block[haschild=true] > div > .block-content-wrapper::before {
+//   pointer-events: none;
+//   content: "";
+//   top: 12px;
+//   bottom: 0;
+//   left: -15px;
+//   position: absolute;
+//   border-left: var(--ls-block-bullet-threading-width) solid transparent;
+// }
+// .ls-block[haschild=true]:focus-within > div > .block-content-wrapper::before {
+//   border-color: var(--ls-block-bullet-active-color);
+// }
+
+// /* Disable for doc mode */
+// .doc-mode div.items-center::before,
+// .doc-mode div.items-center::after,
+// .doc-mode .ls-block::before,
+// .doc-mode .ls-block::after {
+//   display: none;
+// }
+
+// :root {
+//   --display-search-button: block;
+//   --display-arrow-navigation: block;
+//   --display-help-button: block;
+//   --display-recent-pages: block;
+// }
+
+// :root {
+//   --ls-block-bullet-threading-width: 2px;
+// }
+
+// .cp__sidebar-help-btn {
+//   display: var(--display-help-button);
+// }
+
+// a.nav-left,
+// a.nav-right {
+//   display: var(--display-help-button);
+// }
+
+/******************************************************************************/
+/** Review widget *************************************************************/
+/******************************************************************************/
+
+.cards-review {
+  margin-left: -28px;
+}
+
+.cards-review.shadow-xl {
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.05), 0 1px 6px rgba(0, 0, 0, 0.05);
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid var(--color-level-3);
+}
+
+.cards-review .block-parents {
+  display: none;
+}
+
+.cards-title {
+  border-bottom: 1px solid var(--color-level-3);
+  border-radius: 8px 8px 0 0;
+  color: #999;
+  background: var(--color-level-1);
+  font-weight: 500;
+  padding-left: 4px;
+}
+
+.cards-title .tippy-hover {
+  display: none;
+}
+
+.cards-review .ls-card {
+  padding: 0 12px 4px 12px;
+}
+
+.ui__modal .panel-content .block-parents {
+  font-size: 0.9em;
+  margin-bottom: 16px;
+}
+
+.ui__modal .panel-content div[data-refs-self*='"card"'],
+.cards-review div[data-refs-self*='"card"'] {
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0 !important;
+  padding-top: 8px !important;
+  margin-left: 0;
+}
+
+.ls-card {
+  border-top: none;
+  padding: 8px 12px 0 12px;
+  margin-top: -8px;
+}
+
+.ls-card div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 .block-control {
+  display: none;
+}
+
+.cards-review div[data-refs-self*='"card"'] {
+  padding-left: 12px;
+  margin-left: 0;
+}
+
+.block-parents {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.block-parents a {
+  color: var(--ls-link-text-color,#045591);
+}
+
+/******************************************************************************/
+/** Card blocks ***************************************************************/
+/******************************************************************************/
+
+div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 > .block-content-wrapper,
+div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 > .editor-wrapper {
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 {
+  margin-left: 0;
+}
+
+div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 .bullet-container {
+  opacity: 0.5;
+  display: none;
+}
+
+div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 .block-control {
+  margin-left: 12px;
+}
+
+div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 .control-hide {
+  display: block;
+}
+
+div[data-refs-self*='"card"'] {
+  margin-bottom: 8px;
+  background: var(--color-level-1);
+  border-radius: 4px;
+  padding-left: 0;
+  margin-left: 24px;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  border: 1px solid var(--color-level-3);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.03), 0 1px 6px rgba(0, 0, 0, 0.03);
+}
+
+html[data-theme='dark'] div[data-refs-self*='"card"'] {
+  background: var(--color-level-1);
+}
+
+html[data-theme='light'] #right-sidebar div[data-refs-self*='"card"'] {
+  background-color: rgba(255, 254, 253) !important;
+}
+
+html[data-theme='dark'] #right-sidebar div[data-refs-self*='"card"'] {
+  background-color: var(--color-level-2);
+}
+
+// div[data-refs-self*='"card"'] > * {
+//   margin-left: -9px;
+// }
+
+div[data-refs-self*='"card"'] .block-children .bullet-container {
+  opacity: 0.3;
+  display: none;
+}
+
+div[data-refs-self*='"card"'] .block-children {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+div[data-refs-self*='"card"'] .block-children > * {
+  margin-left: 0;
+  margin-left: -18px;
+  margin-left: -12px;
+}
+
+div[data-refs-self*='"card"'] .block-properties,
+div[data-refs-self*='"card"'] .block-properties .page-property-key {
+  border: none;
+  color: #999;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+/******************************************************************************/
+/*** inline PDF styles ********************************************************/
+/******************************************************************************/
+
+.asset-ref.is-pdf {
+  border-bottom: 3px solid #cee8ef88;
+  margin-bottom: -3px;
+  padding-right: 4px;
+  padding-left: 4px;
+  transition: border-bottom 50ms ease-in-out !important;
+}
+
+.asset-ref.is-pdf:hover {
+  transition: border-bottom 50ms ease-in-out !important;
+  border-bottom: 3px solid #cee8efff;
+}
+
+.asset-ref.is-pdf:before {
+  content: '📑';
+  margin-right: 4px;
+}
+
+.asset-ref.is-pdf:after {
+  content: '';
+}
+
+/******************************************************************************/
+/*** make left sidebar more narrow ********************************************/
+/******************************************************************************/
+
+.cp__sidebar-left-layout {
+  // max-width: calc(var(--ls-left-sidebar-width) - 50px);
+  // max-width: calc(var(--ls-left-sidebar-width) - 0);
+}
+
+#main-content.is-left-sidebar-open {
+  // padding-left: calc(var(--ls-left-sidebar-width) - 50px);
+  // padding-left: calc(var(--ls-left-sidebar-width) - 0);
+  padding-right: 16px;
+}
+
+/******************************************************************************/
+
+// .bg-indigo-600 {
+//   background-color: #094b5aee;
+//   box-shadow: 0 0 3px white;
+// }
+
+// .bg-indigo-600:hover,
+// .bg-indigo-700 {
+//   background-color: black;
+//   color: white;
+//   box-shadow: 0 0 3px white;
+// }
+
+/******************************************************************************/
+
+.ls-block .image-resize {
+  border-radius: 8px;
+  border: 1px solid #efefef;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
+  0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.block-content .asset-container {
+  margin-top: 0;
+}
+
+.ls-block .block-body {
+  display: block !important; /* force the parent block body to show even when collapsed */
+}
+
+/******************************************************************************/
+
+.settings-modal,
+.settings-modal button {
+  text-transform: lowercase !important;
+}
+
+// /* TODO: Remove me once the PR I made on Thu-25-Nov is merged */
+/* category icon, on the left of settings-modal */
+.cp__settings-inner > aside ul > li > a > i {
+  margin-right: 4px;
 }
