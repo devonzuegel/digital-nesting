@@ -1,9 +1,16 @@
-/******************************************************************************/
 /* This is a brute-force way of minimizing the flash when switching themes. */
-/******************************************************************************/
-
 * {
   transition: background 100ms ease-in-out !important;
+}
+
+:root {
+  --sans-serif-font: "Inter", sans-serif;
+  --monospace-font: "Roboto Mono", SFMono-Regular, SF Mono,
+    Consolas, Liberation Mono, Menlo, Courier, monospace, "Inter", sans-serif;
+}
+
+html {
+  font-family: var(--sans-serif-font);
 }
 
 /******************************************************************************/
@@ -26,7 +33,7 @@ html[data-theme='light'] {
   font-size: 0.9em;
   padding: 7px;
   text-align: center;
-  font-family: 'SF Mono';
+  font-family: var(--monospace-font);
   font-weight: bold;
 }
 
@@ -179,6 +186,11 @@ html[data-theme='dark'] .dsl-query {
   margin: 0 10px 5px -16px;
 }
 
+.embed-page {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
 .embed-block {
   margin-left: -10px;
 }
@@ -207,7 +219,9 @@ html[data-theme='dark'] .dsl-query {
 .custom-query .ls-block[data-refs-self*='"todo"'] .block-parents:not(:first-child),
 .custom-query .ls-block[data-refs-self*='"doing"'] .block-parents:not(:first-child),
 .custom-query .ls-block[data-refs-self*='"done"'] .block-parents:not(:first-child),
-.custom-query .ls-block[data-refs-self*='"canceled"'] .block-parents:not(:first-child) {
+.custom-query
+  .ls-block[data-refs-self*='"canceled"']
+  .block-parents:not(:first-child) {
   margin-top: 16px;
 }
 
@@ -226,8 +240,7 @@ html[data-theme='dark'] .dsl-query {
 // }
 
 .custom-query-title {
-  font-family: 'Roboto Mono', SFMono-Regular, SF Mono, Consolas, Liberation Mono,
-    Menlo, monospace;
+  font-family: var(--monospace-font);
   font-size: 0.9em;
   margin-left: 10px !important;
   // position: absolute;
@@ -338,9 +351,7 @@ a.tag {
 .tag,
 code,
 pre {
-  // font-family: 'iA Writer Mono V' !important;
-  font-family: 'Roboto Mono', SFMono-Regular, SF Mono, Consolas, Liberation Mono,
-    Menlo, monospace;
+  font-family: var(--monospace-font);
   font-weight: 500;
 }
 
@@ -629,10 +640,14 @@ mark code {
 
 blockquote {
   padding: 4px 12px;
+  filter: brightness(90%);
+}
+
+html[data-theme='light'] blockquote {
   // background: #f7f5f1;
-  background: #fbfaf8;
   // filter: brightness(98%);
   filter: saturate(120%) brightness(98%);
+  background: #fbfaf8;
 }
 
 .ls-block {
@@ -647,7 +662,7 @@ blockquote {
 /******************************************************************************/
 
 .timestamp {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--monospace-font);
 }
 
 .timestamp .timestamp-label {
@@ -666,7 +681,7 @@ blockquote {
 }
 
 .custom-query .timestamp a {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .custom-query .timestamp .timestamp-label {
@@ -704,10 +719,25 @@ blockquote {
   margin-bottom: 12px;
 }
 
+.block-control,
+.block-control:hover {
+  margin-left: -1px;
+  margin-right: 8px !important;
+  margin-right: 0 !important;
+}
+
+// /* arrow toggle container */
+// .flex .block-control {
+//   background: pink;
+// }
 // .flex .block-control:hover {
 //   background: red;
 // }
 
+// /* "halo" around the bullet */
+// .flex .bullet-container {
+//   background: purple;
+// }
 // .flex .bullet-container:hover {
 //   background: blue;
 // }
@@ -726,7 +756,6 @@ blockquote {
 .ls-block h1,
 .editor-inner textarea.h1 {
   margin: 0 !important;
-  margin-left: -36px !important;
   margin-top: 12px !important;
 }
 
@@ -734,6 +763,7 @@ blockquote {
 .editor-inner textarea.h2 {
   margin: 0;
   margin-top: 12px;
+  min-height: 1.5em;
 }
 
 .ls-block h3,
@@ -745,13 +775,25 @@ blockquote {
   border: none !important;
 }
 
+.editor-inner textarea.h1 {
+  margin-left: -28.5px !important;
+}
+.editor-inner textarea.h2 {
+  margin-left: -37px !important;
+  min-height: 1.5em;
+  margin-top: 12px !important;
+}
 .editor-inner textarea.h3 {
   margin-left: -41px !important;
+}
+.editor-inner textarea.h4 {
+  margin-left: -47px !important;
+  font-size: 1.05em;
 }
 
 .editor-inner .h4,
 .ls-block h4 {
-  font-size: 1.05em;
+  font-size: 1.05em !important;
   font-weight: 500;
 }
 
@@ -763,7 +805,8 @@ h1.title {
 
 #left-sidebar .page-icon,
 .title .page-icon {
-  font-family: "Roboto Mono"; /* this is to make the ☀️ emoji render properly */
+  /* this is to make the ☀️ emoji render properly */
+  font-family: var(--monospace-font);
 }
 
 /* This should only apply to the title row, but I couldn't find a good selector
@@ -832,8 +875,9 @@ h1.title {
 }
 
 .done,
-.done *:not(.tag) {  /* make the strikethrough grey even if text is not grey */
-  text-decoration: #bbb 2px line-through !important;
+.done *:not(.tag) {
+  /* make the strikethrough grey even if text is not grey */
+  text-decoration: #bbbbbb99 2px line-through !important;
 }
 
 .color-level .ls-block :is(h1, h2, h3, h4, h5, h6) {
@@ -926,17 +970,28 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 .display-as--doc .bullet,
 .display-children-as--doc .ls-block:not(.display-as--bullet) .bullet,
 .display-children-as--bullet .display-as--doc .block-children .bullet,
-.display-children-as--doc .display-children-as--bullet .ls-block.display-as--doc .bullet,
-.display-children-as--bullet .display-children-as--doc .ls-block:not(.display-as--bullet) .bullet {  
+.display-children-as--doc
+  .display-children-as--bullet
+  .ls-block.display-as--doc
+  .bullet,
+.display-children-as--bullet
+  .display-children-as--doc
+  .ls-block:not(.display-as--bullet)
+  .bullet {
   opacity: 0;
 }
-
 
 .display-as--bullet :not(.display-as--doc) .bullet,
 .display-children-as--bullet .ls-block :not(.display-as--doc) .bullet,
 .display-children-as--doc .display-as--bullet .block-children .bullet,
-.display-children-as--bullet .display-children-as--doc .ls-block.display-as--bullet .bullet,
-.display-children-as--doc .display-children-as--bullet .ls-block:not(.display-as--doc) .bullet {
+.display-children-as--bullet
+  .display-children-as--doc
+  .ls-block.display-as--bullet
+  .bullet,
+.display-children-as--doc
+  .display-children-as--bullet
+  .ls-block:not(.display-as--doc)
+  .bullet {
   opacity: 1;
 }
 
@@ -986,8 +1041,14 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 /******************************************************************************/
 
 .extensions__code > .CodeMirror {
-  // width: 97% !important;
-  // border: 3px solid orange;
+  padding-top: 0;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.extensions__code-calc {
+  color: grey;
+  font-weight: bolder;
 }
 
 .CodeMirror pre.CodeMirror-line,
@@ -1017,14 +1078,7 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
   cursor: default;
   color: #444;
   font-size: 13px;
-  font-family: 'Roboto Mono';
-}
-
-.block-control,
-.block-control:hover {
-  margin-left: -1px;
-  margin-right: 8px !important;
-  margin-right: 0 !important;
+  font-family: var(--monospace-font);
 }
 
 /******************************************************************************/
@@ -1130,24 +1184,33 @@ html[data-theme='dark'] .editor-inner textarea {
   background-color: var(--ls-primary-background-color) !important;
 }
 
-// #main-content-container .block-properties.page-properties {
-//   margin-left: -56px;
-//   padding-left: 32px;
+#main-content-container .block-properties.page-properties {
+  margin-left: -50px;
+  padding-left: 32px;
 
-//   margin-right: -56px;
-//   padding-right: 32px;
+  margin-right: -56px;
+  padding-right: 32px;
 
-//   margin-top: -16px;
-//   padding-top: 16px;
+  margin-top: -16px;
+  padding-top: 16px;
 
-//   padding-bottom: 64px !important;
-//   padding-bottom: 40px !important;
-//   margin-bottom: -8px;
-// }
+  padding-bottom: 64px !important;
+  padding-bottom: 40px !important;
+  margin-bottom: -8px;
+}
+
+#main-content-container .embed-page .block-properties.page-properties {
+  margin: 0;
+  padding: 0;
+  background: var(--color-level-1) !important;
+  margin-left: -24px;
+  padding-left: 16px;
+  margin-bottom: -24px;
+}
 
 .editor-inner textarea.page-properties {
   font-size: 0.8em;
-  font-family: 'Roboto Mono';
+  font-family: var(--monospace-font);
   margin-bottom: -8px;
 }
 
@@ -1156,7 +1219,7 @@ html[data-theme='dark'] .editor-inner textarea {
   border-radius: 4px;
   padding: 4px 4px 6px 6px;
   // border: 1px solid var(--color-level-3);
-  font-family: 'Roboto Mono';
+  font-family: var(--monospace-font);
   background: none;
 }
 
@@ -1391,7 +1454,7 @@ html[data-theme='dark'] .editor-inner textarea {
 }
 
 .block-parents a {
-  color: var(--ls-link-text-color,#045591);
+  color: var(--ls-link-text-color, #045591);
 }
 
 /******************************************************************************/
@@ -1533,9 +1596,16 @@ div[data-refs-self*='"card"'] .block-properties .page-property-key {
 
 .ls-block .image-resize {
   border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme='light'] .ls-block .image-resize {
   border: 1px solid #efefef;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
-  0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme='dark'] .ls-block .image-resize {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.09),
+    0 1px 3px rgba(255, 255, 255, 0.08);
 }
 
 .block-content .asset-container {
