@@ -282,14 +282,17 @@ html[data-theme='light'] html .cp__right-sidebar-scollable::-webkit-scrollbar {
   background-color: white !important;
 }
 html ::-webkit-scrollbar {
-  width: calc(2.5 * var(--ls-scrollbar-width));
+  width: calc(2 * var(--ls-scrollbar-width));
   background-color: var(--ls-primary-background-color);
 }
-html ::-webkit-scrollbar-thumb,
-html ::-webkit-scrollbar-thumb:active {
+html ::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: var(--ls-tertiary-background-color);
   border: 2px solid var(--ls-primary-background-color);
+}
+html ::-webkit-scrollbar-thumb:hover,
+html ::-webkit-scrollbar-thumb:active { /* active is just when it's clicked, not when scrolling in general sadly*/
+  background-color: var(--ls-quaternary-background-color);
 }
 #left-sidebar ::-webkit-scrollbar,
 #right-sidebar ::-webkit-scrollbar {
