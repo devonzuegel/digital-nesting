@@ -536,7 +536,7 @@ ins,
   margin-right: 9px !important;
 }
 .marker-switch.block-marker {
-  opacity: 0.3;
+  opacity: 0.25;
   pointer-events: none;
   // display: none;
 }
@@ -1039,37 +1039,37 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 /******************************************************************************/
 /** Show checkboxes even when editing that line *******************************/
 /******************************************************************************/
-.todo-block:before {
+
+.ls-block[data-refs-self='["todo"]'] .editor-wrapper:before {
   content: '';
+  position: absolute;
   border: 2px solid #999;
   border-radius: 2px;
   height: 15px;
   width: 15px;
-  margin-right: 8px;
-  margin-top: 5px;
+  margin-top: 6px;
   margin-left: -22px;
-  background: var(--ls-primary-background-color);
+  background-color: var(--ls-primary-background-color);
 }
-.doing-block:before {
+.ls-block[data-refs-self='["doing"]'] .editor-wrapper:before {
   content: '';
-  border-radius: 2px;
-  height: 15px;
-  width: 15px;
-  margin-right: 8px;
-  margin-top: 5px;
-  margin-left: -22px;
-  background-color: white;
+  position: absolute;
   border: 2px solid rgb(50, 209, 135);
   border-radius: 13px;
+  height: 15px;
+  width: 15px;
+  margin-top: 6px;
+  margin-left: -22px;
+  background-color: var(--ls-primary-background-color);
 }
-.done-block:before {
+.ls-block[data-refs-self='["done"]'] .editor-wrapper:before {
   content: '';
+  position: absolute;
   border: 2px solid #999;
   border-radius: 2px;
   height: 15px;
   width: 15px;
-  margin-right: 8px;
-  margin-top: 5px;
+  margin-top: 6px;
   margin-left: -22px;
   background-color: #999;
   background-image: url("data:image/svg+xml,%3csvg viewBox='3 3 10 10' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e") !important;
