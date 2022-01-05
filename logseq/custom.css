@@ -1040,18 +1040,18 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 /** Show checkboxes even when editing that line *******************************/
 /******************************************************************************/
 
-.ls-block[data-refs-self='["todo"]'] .editor-wrapper:before {
+.ls-block[data-refs-self='["todo"]'] > * > .editor-wrapper:before {
   content: '';
   position: absolute;
   border: 2px solid #999;
   border-radius: 2px;
   height: 15px;
   width: 15px;
-  margin-top: 6px;
+  margin-top: 5.5px;
   margin-left: -22px;
   background-color: var(--ls-primary-background-color);
 }
-.ls-block[data-refs-self='["doing"]'] .editor-wrapper:before {
+.ls-block[data-refs-self='["doing"]'] > * > .editor-wrapper:before {
   content: '';
   position: absolute;
   border: 2px solid rgb(50, 209, 135);
@@ -1062,7 +1062,7 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
   margin-left: -22px;
   background-color: var(--ls-primary-background-color);
 }
-.ls-block[data-refs-self='["done"]'] .editor-wrapper:before {
+.ls-block[data-refs-self='["done"]'] > * > .editor-wrapper:before {
   content: '';
   position: absolute;
   border: 2px solid #999;
