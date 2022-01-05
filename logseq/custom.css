@@ -31,19 +31,6 @@ html[data-theme='light'] {
   --color-level-2-custom: var(--color-level-2);
   --ls-primary-background-color--dark: var(-ls-block-bullet-color);
 }
-.cp__sidebar-main-content {
-  max-width: calc(var(--ls-main-content-max-width) + 50px);
-}
-
-/******************************************************************************/
-/** References (linked & unlinked) ********************************************/
-/******************************************************************************/
-
-.references {
-  border-top: 3px solid #eee;
-  padding-top: 56px;
-  margin-top: 36px;
-}
 
 /******************************************************************************/
 /** Custom queries ************************************************************/
@@ -283,7 +270,7 @@ html[data-theme='light'] html .cp__right-sidebar-scollable::-webkit-scrollbar {
 }
 html ::-webkit-scrollbar {
   width: calc(2 * var(--ls-scrollbar-width));
-  background-color: var(--ls-primary-background-color);
+  background-color: transparent !important;
 }
 html ::-webkit-scrollbar-thumb {
   border-radius: 8px;
@@ -692,6 +679,7 @@ html[data-theme='light'] blockquote {
 .flex .bullet-container,
 .flex .bullet-container:hover {
   background: var(--ls-primary-background-color);
+  background: transparent;
 }
 // .flex .bullet-container:hover {
 //   background: blue;
@@ -699,6 +687,37 @@ html[data-theme='light'] blockquote {
 .flex .bullet-container:hover + .flex {
   border: 3px solid orange;
 }
+.block-children-left-border {
+  background-color: var(--ls-secondary-background-color);
+  width: 8px !important;
+  margin-left: 0;
+  margin-right: -3px;
+  transition: all 400ms;
+}
+.block-children-left-border:hover {
+  background-color: var(--ls-tertiary-background-color);
+  width: 5px !important;
+  margin-left: 0;
+  margin-right: 0;
+  transition: all 400ms;
+}
+.color-level .block-children-left-border {
+  background-color: var(--ls-tertiary-background-color);
+  width: 8px !important;
+  margin-left: 0;
+  margin-right: -3px;
+  transition: all 400ms;
+}
+.color-level .block-children-left-border:hover {
+  background-color: var(--ls-quaternary-background-color);
+  width: 5px !important;
+  margin-left: 0;
+  margin-right: 0;
+  transition: all 400ms;
+}
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
 .block-content-wrapper .block-content:hover :is(h1, h2, h3, h4, h5, h6),
 .ls-block:hover .block-content:hover :is(h1, h2, h3, h4, h5, h6) {
   margin-left: 0 !important;
@@ -762,6 +781,10 @@ h1.title {
   padding-bottom: 0.25rem;
   margin-bottom: 1.25rem;
   border-bottom: 1px solid var(--ls-quaternary-background-color);
+}
+h1, h2, h3,
+textarea.h1, textarea.h2, textarea.h3 {
+  border-bottom: none !important;
 }
 
 /******************************************************************************/
@@ -1131,6 +1154,31 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
   margin-left: -24px;
   padding-left: 16px;
   padding-bottom: 8px !important;
+}
+#main-content-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.page.relative .relative {
+  padding-left: 64px;
+  padding-right: 64px;
+}
+.cp__sidebar-main-content {
+  max-width: calc(var(--ls-main-content-max-width) + 50px);
+  max-width: none;
+}
+/******************************************************************************/
+/** References (linked & unlinked) ********************************************/
+/******************************************************************************/
+
+.references {
+  border-top: 1px solid var(--ls-quaternary-background-color);
+  padding-top: 56px;
+  margin-top: 36px;
+  margin-right: -20px;
+  padding-left: 64px;
+  padding-right: calc(64px + 20px);
 }
 .editor-inner textarea.page-properties {
   font-size: 0.8em;
