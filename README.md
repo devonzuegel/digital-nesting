@@ -1,36 +1,33 @@
 <h1>Digital nesting 🐣</h1> <!-- This h1 is a manual tag so it doesn't get pulled into the auto-generated ToC -->
+
 Hello! Welcome to the place where I collect my custom CSS and other custom configuration, or as I like to call it my "digital nesting".
 
 These files used to live in gists, but then I made so many of them for sites all around the internet that I decided it was finally time to break it out into its own little project.
 
 You're welcome to borrow or tweak any of these custom styles.
 
-### Table of contents
+**Table of contents:**
+- [Applications](#applications)
+    - [Logseq](#logseq)
+    - [Google Docs](#google-docs)
+    - [Twitter](#twitter)
+    - [Zoom](#zoom)
+    - [Roam](#roam)
+- [How to use these styles](#how-to-use-these-styles)
 
-- [Logseq](#logseq)
-- [Google Docs](#google-docs)
-- [Twitter](#twitter)
-- [Zoom](#zoom)
-- [Roam](#roam)
+# Applications
 
-### Usage
-Chrome is my primary browser, so I use:
-- [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) to manage my custom styles.
-- [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) to manage my custom Javascript scripts.
+### Logseq
 
-If you don't use Chrome, these files should work with any other sort of browser CSS and JS managers too, maybe with some minor tweaks.
+[`logseq/custom.css`](logseq/custom.css) &nbsp; · &nbsp; [`logseq/config.edn`](logseq/config.edn) · &nbsp; [`logseq/queries.md`](logseq/queries.md)
 
-## Logseq
-
-[`logseq/custom.css`](logseq/custom.css) &nbsp; · &nbsp; [`logseq/config.edn`](logseq/config.edn)
-
-Logseq is the primary note taking app I use these days. It has great base styles, but I just had a few tiny things I wanted to tweak.
+Logseq is the primary note taking app I use these days. It has great base styles, but I just had a few tiny things I wanted to tweak. I've also shared the primary [queries](logseq/queries.md) I have embedded in my Home page to save you the hassle of writing them yourself.
 
 ![](logseq/logseq-light.png)
 
 ![](logseq/logseq-dark.png)
 
-## Google Docs
+### Google Docs
 
 [`google-docs/google-docs.css`](google-docs/google-docs.css) &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1127421463647023104)
 
@@ -38,7 +35,7 @@ I don't like that Google Docs still imposes the sheet-of-paper metaphor. I rough
 
 ![](google-docs/google-docs.png)
 
-## Twitter
+### Twitter
 
 [`twitter/twitter.css`](twitter/twitter.css)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1254262711979929600)
 
@@ -50,7 +47,7 @@ It also neatens up the styles and removes some of the modules that I never use.
 
 <img width="70%" src="twitter/twitter.png" />
 
-## Zoom
+### Zoom
 
 [`zoom/zoom.js`](zoom/zoom.js)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1242590822740049921)
 
@@ -58,8 +55,15 @@ If orphaned Zoom  tabs annoy you as much as they annoy me, I have a little gift 
 
 <img width="70%" src="zoom/zoom.jpg"/>
 
-## Roam
+### Roam
 
 [`roam/roam.css`](roam/roam.css)
 
 ![](roam/roam.png)
+
+# How to use these styles
+Some of the styles here are loaded through a CSS/JS customizer browser extensoin. Chrome is my primary browser, so I use:
+- [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) to manage my custom styles.
+- [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) to manage my custom Javascript scripts.
+
+If you don't use Chrome, these files should work with any other sort of browser CSS and JS managers too, maybe with some minor tweaks.
