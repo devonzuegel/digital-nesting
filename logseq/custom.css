@@ -7,7 +7,6 @@ html {
 }
 
 /******************************************************************************/
-
 .white-theme,
 html[data-theme='light'] {
   --ls-primary-background-color: white;
@@ -35,7 +34,6 @@ html[data-theme='light'] {
 /******************************************************************************/
 /** Custom queries ************************************************************/
 /******************************************************************************/
-
 .custom-query {
   margin-left: -28px;
 }
@@ -49,9 +47,7 @@ html[data-theme='light'] #left-sidebar {
 }
 @media (min-width: 640px) {
   .cp__sidebar-left-layout.is-open {
-    width: calc(
-      var(--ls-left-sidebar-width) + 1px
-    ); /* for some reason, this is needed, otherwise the border-right on #left-sidebar won't show */
+    width: calc(var(--ls-left-sidebar-width) + 1px); /* for some reason, this is needed, otherwise the border-right on #left-sidebar won't show */
   }
 }
 html[data-theme='light'] .color-level .color-level {
@@ -62,12 +58,8 @@ html[data-theme='light'] .color-level .color-level {
 html[data-theme='light'] .color-level .ls-block :is(h1, h2, h3, h4, h5, h6) {
   background-color: var(--color-level-1-custom) !important;
 }
-html[data-theme='light']
-  .references-blocks
-  .color-level
-  .ls-block
-  :is(h1, h2, h3, h4, h5, h6) {
-  background-color: white !important;
+html[data-theme='light'] .references-blocks .color-level .ls-block :is(h1, h2, h3, h4, h5, h6) {
+  // background-color: white !important;
 }
 html[data-theme='light'] .color-level .color-level .color-level {
   background-color: var(--color-level-1);
@@ -184,9 +176,7 @@ html[data-theme='dark'] .dsl-query {
 .custom-query .ls-block[data-refs-self*='"todo"'] .block-parents:not(:first-child),
 .custom-query .ls-block[data-refs-self*='"doing"'] .block-parents:not(:first-child),
 .custom-query .ls-block[data-refs-self*='"done"'] .block-parents:not(:first-child),
-.custom-query
-  .ls-block[data-refs-self*='"canceled"']
-  .block-parents:not(:first-child) {
+.custom-query .ls-block[data-refs-self*='"canceled"'] .block-parents:not(:first-child) {
   margin-top: 16px;
 }
 // /* this hides TODOs' paths to make the custom query blocks a little more streamlined */
@@ -223,7 +213,6 @@ html[data-theme='dark'] .dsl-query {
 /******************************************************************************/
 /* Today queries **************************************************************/
 /******************************************************************************/
-
 #today-queries {
   font-size: 0.9em;
   margin-left: -24px;
@@ -262,7 +251,6 @@ html[data-theme='dark'] #today-queries .custom-query {
 /******************************************************************************/
 /** Right sidebar *************************************************************/
 /******************************************************************************/
-
 .sidebar-item {
   box-shadow: none !important;
 }
@@ -451,9 +439,9 @@ ins,
 .raw_html {
   display: inline;
 }
-/*******************/
-/** Sidebar links **/
-/*******************/
+/******************************************************************************/
+/** Sidebar links *************************************************************/
+/******************************************************************************/
 .cp__right-sidebar-settings > .ml-4.text-sm {
   font-weight: bold;
   font-size: 13px;
@@ -483,19 +471,19 @@ ins,
   color: transparent;
 }
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(2) a:before {
-  content: '→ ‎Recent';
-  color: var(--ls-icon-color, #045591);
-  display: block;
-  position: relative;
-  margin-left: -12px;
+  // content: '→ ‎Recent';
+  // color: var(--ls-icon-color, #045591);
+  // display: block;
+  // position: relative;
+  // margin-left: -12px;
+  display: none;
 }
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) a:before {
   color: var(--ls-icon-color, #045591);
   display: block;
   position: relative;
 }
-/* Don't show the page graph button
-*/
+/* Don't show the page graph button*/
 .cp__right-sidebar-settings > .ml-4.text-sm:nth-child(3) {
   display: none;
 }
@@ -512,9 +500,9 @@ ins,
 .cp__right-menu-button {
   opacity: 0.6;
 }
-/***********/
-/** TODOs **/
-/***********/
+/******************************************************************************/
+/** TODOs *********************************************************************/
+/******************************************************************************/
 .form-checkbox {
   color: var(--ls-page-checkbox-color, #6093a0);
   background: none;
@@ -575,7 +563,6 @@ mark code {
 /******************************************************************************/
 /** Blockquote ****************************************************************/
 /******************************************************************************/
-
 .block-body blockquote:first-child,
 .block-body pre:first-child {
   padding-top: 2px;
@@ -588,6 +575,10 @@ mark code {
 blockquote {
   padding: 4px 12px;
   filter: brightness(90%);
+}
+#right-sidebar blockquote {
+  background-color: var(--ls-tertiary-background-color);
+  filter: saturate(90%) brightness(100%);
 }
 html[data-theme='light'] blockquote {
   // background: #f7f5f1;
@@ -603,10 +594,26 @@ html[data-theme='light'] blockquote {
 }
 
 /******************************************************************************/
+/** del (strikethrough) *******************************************************/
+/******************************************************************************/
+del {
+  opacity: 0.6;
+}
+
+/******************************************************************************/
 /** Timestamps (deadline, etc) ************************************************/
 /******************************************************************************/
 .timestamp {
   font-family: var(--monospace-font);
+  background: var(--ls-primary-background-color);
+  z-index: 100000;
+}
+.tag {
+  z-index: -1;
+}
+.custom-query .timestamp,
+.color-level .timestamp {
+  background: var(--ls-secondary-background-color);
 }
 .timestamp .timestamp-label {
   text-transform: lowercase;
@@ -630,6 +637,10 @@ html[data-theme='light'] blockquote {
 .custom-query .drawer[data-drawer-name='logbook'] {
   display: none;
 }
+.logbook,
+div[data-drawer-name='logbook'] {
+  display: none;
+}
 /* Remote < and > before/after the timestap */
 .time-start,
 .time-stop {
@@ -639,7 +650,6 @@ html[data-theme='light'] blockquote {
 /******************************************************************************/
 /** Headers *******************************************************************/
 /******************************************************************************/
-
 /*
  * Remove the block of CSS below in order to see the header handles:
 .ls-block :is(h1, h2, h3, h4, h5, h6) {
@@ -667,10 +677,7 @@ html[data-theme='light'] blockquote {
 .block-control {
   opacity: 0.7;
 }
-.ls-block[haschild='true']
-  > :not(.block-children-container)
-  .block-control
-  .control-hide {
+.ls-block[haschild='true'] > :not(.block-children-container) .block-control .control-hide {
   display: block; /* Override the default behavior so that the arrow block controls are not hidden. */
   opacity: 0.4;
 }
@@ -692,6 +699,11 @@ html[data-theme='light'] blockquote {
 // }
 .flex .bullet-container:hover + .flex {
   border: 3px solid orange;
+}
+.selected .block-children-left-border {
+  background-color: var(--ls-primary-background-color);
+  opacity: 0.4;
+  transition: all 10ms ease-in-out;
 }
 .embed-block .block-children-left-border {
   display: none !important;
@@ -793,7 +805,11 @@ h1.title {
 .flex-1.journal.page > .flex.flex-col > .content > .flex-1.flex-row.foldable-title {
   padding-bottom: 0.25rem;
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--ls-quaternary-background-color);
+  border-bottom: 6px solid var(--ls-secondary-background-color);
+  // margin-left: -1000px;
+  // margin-right: -1000px;
+  // padding-left: 1000px;
+  // padding-right: 1000px;
 }
 h1,
 h2,
@@ -807,7 +823,6 @@ textarea.h3 {
 /******************************************************************************/
 /** Lists *********************************************************************/
 /******************************************************************************/
-
 // .block-body dl > li,
 // .block-body ol > li,
 // .block-body ul > li {
@@ -861,9 +876,15 @@ textarea.h3 {
   background: var(--color-level-1);
 }
 .ls-block :is(h1, h2, h3, h4, h5, h6),
+.ls-block :is(.h1, .h2, .h3, .h4, .h5, .h6),
 .todo .form-checkbox,
 .doing .form-checkbox {
   background: var(--ls-primary-background-color);
+}
+.color-level .ls-block :is(h1, h2, h3, h4, h5, h6),
+.color-level .todo .form-checkbox,
+.color-level .doing .form-checkbox {
+  background: var(--ls-secondary-background-color);
 }
 html[data-theme='light'] .block-highlight,
 html[data-theme='light'] .content .selected,
@@ -920,9 +941,6 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
   margin-right: 0;
   cursor: move;
 }
-
-/******************************************************************************/
-
 .display-as--bullet .bullet {
   opacity: 1;
 }
@@ -933,27 +951,15 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 .display-as--doc .bullet,
 .display-children-as--doc .ls-block:not(.display-as--bullet) .bullet,
 .display-children-as--bullet .display-as--doc .block-children .bullet,
-.display-children-as--doc
-  .display-children-as--bullet
-  .ls-block.display-as--doc
-  .bullet,
-.display-children-as--bullet
-  .display-children-as--doc
-  .ls-block:not(.display-as--bullet)
-  .bullet {
+.display-children-as--doc .display-children-as--bullet .ls-block.display-as--doc .bullet,
+.display-children-as--bullet .display-children-as--doc .ls-block:not(.display-as--bullet) .bullet {
   opacity: 0;
 }
 .display-as--bullet :not(.display-as--doc) .bullet,
 .display-children-as--bullet .ls-block :not(.display-as--doc) .bullet,
 .display-children-as--doc .display-as--bullet .block-children .bullet,
-.display-children-as--bullet
-  .display-children-as--doc
-  .ls-block.display-as--bullet
-  .bullet,
-.display-children-as--doc
-  .display-children-as--bullet
-  .ls-block:not(.display-as--doc)
-  .bullet {
+.display-children-as--bullet .display-children-as--doc .ls-block.display-as--bullet .bullet,
+.display-children-as--doc .display-children-as--bullet .ls-block:not(.display-as--doc) .bullet {
   opacity: 1;
 }
 // .display-as--doc .bullet,
@@ -997,7 +1003,6 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 // }
 
 /******************************************************************************/
-
 .extensions__code > .CodeMirror {
   padding-top: 0;
   margin: 0;
@@ -1039,7 +1044,6 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 /******************************************************************************/
 /** Show checkboxes even when editing that line *******************************/
 /******************************************************************************/
-
 .ls-block[data-refs-self='["todo"]'] > * > .editor-wrapper:before {
   content: '';
   position: absolute;
@@ -1075,9 +1079,6 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
   background-image: url("data:image/svg+xml,%3csvg viewBox='3 3 10 10' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e") !important;
 }
 html[data-theme='light'] .editor-inner textarea {
-  // background: #c0e6fd22;
-  // background: #cccccc33;
-  // background: #e3f5ff;
   background: #eef8ff;
 }
 html[data-theme='dark'] .editor-inner textarea {
@@ -1097,20 +1098,11 @@ html[data-theme='dark'] .editor-inner textarea {
   color: white;
   opacity: 0.8;
 }
-/* Make sure bullet is on top of `.editor-inner textarea` so that the
- * background doesn't cover the bullet.
- .ls-block .flex-row:first-child {
-   z-index: 1;
-  }
-  */
-/*
-.blocks-container .bullet-container,
-.blocks-container .block-content-wrapper
- {
-  opacity: 0.8;
-}
-*/
-/* TODO: build a toggle */
+
+/******************************************************************************/
+/** page properties ***********************************************************/
+/******************************************************************************/
+
 html[data-theme='light'] .selected .block-properties.page-properties {
   background-color: #e3f5ff !important;
 }
@@ -1123,15 +1115,10 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
 #right-sidebar #lazy-blocks .ls-block.pre-block[level='1']:first-child:hover {
   opacity: 0;
   transition: all 2s;
-  // max-height: 0;
-  // min-height: 0;
-  // margin: 0;
-  // padding: 0;
 }
 #lazy-blocks .ls-block.pre-block[level='1']:first-child:hover {
   opacity: 1;
   transition: all 400ms;
-  // max-height: 10000px;
 }
 .block-properties.page-properties,
 .block-properties.page-properties .page-property-key {
@@ -1159,36 +1146,16 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
   margin-top: -92px;
   background-color: var(--ls-primary-background-color);
 }
-#main-content-container .block-properties.page-properties,
-#main-content-container #lazy-blocks .ls-block.pre-block[level='1']:first-child {
-  // margin-left: -50px;
-  // padding-left: 32px;
+// #main-content-container .block-properties.page-properties,
+// #main-content-container #lazy-blocks .ls-block.pre-block[level='1']:first-child {}
 
-  // margin-right: -56px;
-  // padding-right: 32px;
-
-  // margin-top: -16px;
-  // padding-top: 16px;
-
-  // padding-bottom: 64px !important;
-  // padding-bottom: 40px !important;
-  // margin-bottom: -8px;
-}
 #main-content-container #lazy-blocks .ls-block.pre-block[level='1']:first-child {
   max-width: 200px;
   width: 20vw;
   float: right;
-  // overflow: hidden;
-  // border: 1px solid var(--ls-tertiary-background-color);
 }
-#main-content-container
-  #lazy-blocks
-  .ls-block.pre-block[level='1']:first-child
-  .block-control,
-#main-content-container
-  #lazy-blocks
-  .ls-block.pre-block[level='1']:first-child
-  .bullet-container {
+#main-content-container #lazy-blocks .ls-block.pre-block[level='1']:first-child .block-control,
+#main-content-container #lazy-blocks .ls-block.pre-block[level='1']:first-child .bullet-container {
   display: none;
 }
 #main-content-container .block-properties.page-properties textarea {
@@ -1224,63 +1191,55 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
 #main-content .collapsed .block-properties {
   display: none;
 }
-// #main-content-container .block-properties.page-properties * {
-//   opacity: 0.6;
-// }
-// #main-content-container .block-properties.page-properties:hover * {
-//   opacity: 1;
-// }
 #main-content-container .embed-page .block-properties.page-properties {
-  // margin: 0;
-  // padding: 0;
-  // background: var(--color-level-1) !important;
-  // margin-left: -24px;
-  // padding-left: 16px;
-  // padding-bottom: 8px !important;
   display: none;
 }
-#main-content-container {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-#main-content-container .page.relative .relative {
-  padding-left: 64px;
-  padding-right: 64px;
-}
-.cp__sidebar-main-content {
-  max-width: calc(var(--ls-main-content-max-width) + 50px);
-  max-width: none;
-}
 /******************************************************************************/
-/** References (linked & unlinked) ********************************************/
+/** references (linked & unlinked) ********************************************/
 /******************************************************************************/
-
-#main-content-container .references {
-  border-top: 1px solid var(--ls-quaternary-background-color);
-  padding-top: 56px;
+#main-content-container .page > * > .references {
+  /* slightly less spacing for the Linked References */
+  border-top: 6px solid var(--ls-secondary-background-color);
+  padding-top: 36px;
   margin-top: 36px;
-  margin-right: -20px;
-  padding-left: 64px;
-  padding-right: calc(64px + 20px);
+  margin-top: calc(36px - 1em);
 }
-
-.cp__right-sidebar .references {
-  padding-left: 4px;
-  margin-top: 0;
+#main-content-container {
+  overflow: hidden;
 }
+// #main-content-container .references {
+//   margin-left: -520px;
+//   margin-right: -520px;
+//   padding-left: 520px;
+//   padding-right: 520px;
+// }
+.references h2 {
+  text-transform: lowercase !important;
+  opacity: 0.3 !important;
+  font-weight: 500;
+}
+// #main-content-container {
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+// }
+// #main-content-container .page.relative .relative {
+//   padding-left: 64px;
+//   padding-right: 64px;
+// }
+// .cp__sidebar-main-content {
+//   max-width: calc(var(--ls-main-content-max-width) + 50px);
+//   max-width: none;
+// }
+// .cp__right-sidebar .references {
+//   padding-left: 4px;
+//   margin-top: 0;
+// }
 
 /******************************************************************************/
 /******************************************************************************/
 /******************************************************************************/
-
 .block-body hr {
-  /*
-  margin-left: -20px;
-  margin-right: -20px;
-  margin-top: 48px;
-  margin-bottom: 40px;
-  */
   border-width: 1px;
   margin: 12px -16px 0 -20px;
   z-index: -1;
@@ -1298,16 +1257,24 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
 }
 
 /******************************************************************************/
-/*** Spaced repetition cards review widget ************************************/
+/*** spaced repetition cards review widget ************************************/
 /******************************************************************************/
 #preview-all-cards {
   display: none;
 }
 
 /******************************************************************************/
-/*** Lowercase the left navbar ************************************************/
+/*** left sidebar *************************************************************/
 /******************************************************************************/
-
+.cp__sidebar-left-layout {
+  // max-width: calc(var(--ls-left-sidebar-width) - 50px);
+  // max-width: calc(var(--ls-left-sidebar-width) - 0);
+}
+#main-content.is-left-sidebar-open {
+  // padding-left: calc(var(--ls-left-sidebar-width) - 50px);
+  // padding-left: calc(var(--ls-left-sidebar-width) - 0);
+  padding-right: 16px;
+}
 // .nav-content-item .hd .uppercase,
 // .nav-content-item .header,
 // nav {
@@ -1316,9 +1283,8 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
 // }
 
 /******************************************************************************/
-/** Review widget *************************************************************/
+/** review widget *************************************************************/
 /******************************************************************************/
-
 .cards-review {
   margin-left: -28px;
 }
@@ -1379,9 +1345,8 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
 }
 
 /******************************************************************************/
-/** Card blocks ***************************************************************/
+/** card blocks ***************************************************************/
 /******************************************************************************/
-
 div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 > .block-content-wrapper,
 div[data-refs-self*='"card"'] > .flex.flex-row.pr-2 > .editor-wrapper {
   font-weight: bold;
@@ -1465,20 +1430,8 @@ div[data-refs-self*='"card"'] .block-properties .page-property-key {
 }
 
 /******************************************************************************/
-/*** make left sidebar more narrow ********************************************/
+/** image styles **************************************************************/
 /******************************************************************************/
-.cp__sidebar-left-layout {
-  // max-width: calc(var(--ls-left-sidebar-width) - 50px);
-  // max-width: calc(var(--ls-left-sidebar-width) - 0);
-}
-#main-content.is-left-sidebar-open {
-  // padding-left: calc(var(--ls-left-sidebar-width) - 50px);
-  // padding-left: calc(var(--ls-left-sidebar-width) - 0);
-  padding-right: 16px;
-}
-
-/******************************************************************************/
-
 .ls-block .image-resize {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -1487,8 +1440,7 @@ html[data-theme='light'] .ls-block .image-resize {
   border: 1px solid #efefef;
 }
 html[data-theme='dark'] .ls-block .image-resize {
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.09),
-    0 1px 3px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.09), 0 1px 3px rgba(255, 255, 255, 0.08);
 }
 .block-content .asset-container {
   margin-top: 0;
@@ -1498,7 +1450,6 @@ html[data-theme='dark'] .ls-block .image-resize {
 }
 
 /******************************************************************************/
-
 .settings-modal,
 .settings-modal button {
   text-transform: lowercase !important;
