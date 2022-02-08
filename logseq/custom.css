@@ -461,6 +461,26 @@ ins,
   display: inline;
 }
 /******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+
+#main-container .ls-block[data-refs-self*='"meeting"'] {
+  border: 6px solid var(--ls-secondary-background-color);
+  border-radius: 0 16px 16px 0;
+  outline-offset: -9px;
+  outline: 2px solid var(--ls-primary-background-color);
+  z-index: 2;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+#main-container .ls-block[data-refs-self*='"meeting"'] > .block-children-container {
+  margin-bottom: 12px;
+}
+#main-container .block-children {
+  padding-right: 2px;
+}
+
+/******************************************************************************/
 /** Sidebar links *************************************************************/
 /******************************************************************************/
 .cp__right-sidebar-settings > .ml-4.text-sm {
