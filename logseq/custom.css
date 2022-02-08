@@ -743,43 +743,59 @@ div[data-drawer-name='logbook'] {
 }
 .selected .block-children-left-border {
   background-color: var(--ls-primary-background-color);
-  opacity: 0.4;
-  transition: all 10ms ease-in-out;
+  opacity: 0.8;
+  transition: all 100ms ease-in-out;
 }
 .embed-block .block-children-left-border {
   display: none !important;
 }
 #right-sidebar-container .page {
-  border-left: 6px solid var(--ls-tertiary-background-color);
+  border-left: 8px solid var(--ls-tertiary-background-color);
   margin-left: -1px !important;
 }
-.block-children-left-border {
+.block-children-left-border,
+.color-level .color-level .block-children-left-border {
   background-color: var(--ls-secondary-background-color);
   width: 8px !important;
   margin-left: 0;
   margin-right: -3px;
-  transition: all 400ms;
+  transition: all 200ms;
+  outline: 3px solid var(--ls-primary-background-color);
+}
+.color-level .block-children-left-border {
+  outline: 3px solid var(--ls-secondary-background-color);
+}
+.selected .block-children,
+.selected .block-children-left-border {
+  outline: none !important;
+}
+.selected .block-children-left-border {
+  margin-left: -6px;
+  transition: none;
+}
+.block-children-left-border {
+  transition: none;
 }
 .block-children-left-border:hover {
   background-color: var(--ls-tertiary-background-color);
   width: 5px !important;
   margin-left: 0;
   margin-right: 0;
-  transition: all 400ms;
+  transition: all 200ms;
 }
 .color-level .block-children-left-border {
   background-color: var(--ls-tertiary-background-color);
   width: 8px !important;
   margin-left: 0;
   margin-right: -3px;
-  transition: all 400ms;
+  transition: all 200ms;
 }
 .color-level .block-children-left-border:hover {
   background-color: var(--ls-quaternary-background-color);
   width: 5px !important;
   margin-left: 0;
   margin-right: 0;
-  transition: all 400ms;
+  transition: all 200ms;
 }
 /******************************************************************************/
 /******************************************************************************/
@@ -838,6 +854,10 @@ h1.title {
 .title .page-icon {
   /* this is to make the ☀️ emoji render properly */
   font-family: var(--monospace-font);
+}
+.flashcards-nav,
+.graph-view-nav {
+  display: none;
 }
 /* This should only apply to the title row, but I couldn't find a good selector
  * for it. It appears that it's the only thing that has these 3 classes, so it
@@ -949,6 +969,32 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
 .selected {
   border-radius: 6px;
 }
+/* make it so that .selected blocks don't overlap with the children left border */
+.ls-block.selected {
+  margin-left: 8px;
+}
+.ls-block,
+.ls-block.selected {
+  outline: 3px solid var(--ls-primary-background-color);
+}
+.color-level .ls-block.selected,
+.color-level .ls-block {
+  outline: 3px solid var(--ls-secondary-background-color);
+}
+.selected .ls-block,
+.selected .ls-block.selected {
+  outline-color: #e3f5ff;
+  transition: ease-in 100ms;
+}
+/*******************************************************************************/
+/*******************************************************************************/
+/*******************************************************************************/
+a.block-control {
+  transition: none;
+}
+.selected .block-control {
+  margin-left: -7px;
+}
 #right-sidebar .ls-block h1,
 #right-sidebar .ls-block h2,
 #right-sidebar .ls-block h3,
@@ -1050,8 +1096,9 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
   border-radius: 8px;
 }
 .extensions__code-calc {
-  color: grey;
+  color: #aaa;
   font-weight: bolder;
+  margin-top: 0;
 }
 .CodeMirror pre.CodeMirror-line,
 .CodeMirror pre.CodeMirror-line-like,
@@ -1246,7 +1293,7 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
   margin-top: calc(36px - 1em);
 }
 #main-content-container {
-  overflow: hidden;
+  overflow: scroll;
 }
 // #main-content-container .references {
 //   margin-left: -520px;
