@@ -316,14 +316,10 @@ pre {
   font-weight: 500;
 }
 html[data-theme='light'] .tag {
-  // color: white !important;
   padding: 0 3px;
   border-radius: 2px;
 }
 html[data-theme='dark'] .tag {
-  // color: black !important;
-  // color: white !important;
-  // box-shadow: 0 0 2px white;
   padding: 0 3px;
   border-radius: 2px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -343,9 +339,15 @@ html[data-theme='light'] .tag[data-ref='standup']:hover {
   content: '🎤';
   margin-right: 4px;
 }
-.tag[data-ref='to-read'] {
-  border: 1px solid rgb(247, 126, 255);
-  color: rgb(247, 126, 255) !important;
+.tag[data-ref='car']:before,
+.tag[data-ref='fiat']:before {
+  content: '🚗';
+  margin-right: 4px;
+}
+.tag[data-ref='car'],
+.tag[data-ref='fiat'] {
+  border: 1px solid #ff0000aa;
+  color: red !important;
   background-color: transparent;
   padding: 0 3px;
   border-radius: 2px;
@@ -353,6 +355,13 @@ html[data-theme='light'] .tag[data-ref='standup']:hover {
 .tag[data-ref='to-read']:before {
   content: '📚';
   margin-right: 4px;
+}
+.tag[data-ref='to-read'] {
+  border: 1px solid rgb(247, 126, 255);
+  color: rgb(247, 126, 255) !important;
+  background-color: transparent;
+  padding: 0 3px;
+  border-radius: 2px;
 }
 .tag[data-ref='pdf'],
 .tag[data-ref='paper'] {
@@ -387,11 +396,29 @@ html[data-theme='light'] .tag[data-ref='standup']:hover {
   content: '📆';
   margin-right: 4px;
 }
+.tag[data-ref='tweets'] {
+  border: 1px solid #6093a0cc;
+  color: #6093a0cc;
+  transition: border-color background-color opacity linear 500ms;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+.tag[data-ref='tweets']:before {
+  content: '🐦';
+  margin-right: 4px;
+}
+.tag[data-ref='high-priority'],
 .tag[data-ref='important'],
 .tag[data-ref='urgent'] {
   border: 1px solid rgb(255, 145, 0);
   color: rgb(255, 145, 0);
   transition: border-color background-color opacity linear 500ms;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+.tag[data-ref='low-priority'] {
+  border-color: rgb(186, 174, 204);
+  color: rgb(186, 174, 204);
   padding: 0 3px;
   border-radius: 2px;
 }
@@ -425,12 +452,6 @@ html[data-theme='light'] .tag[data-ref='standup']:hover {
 .tag[data-ref='good-for-sleepy'] {
   border-color: rgb(65, 17, 141);
   color: rgb(65, 17, 141);
-  padding: 0 3px;
-  border-radius: 2px;
-}
-.tag[data-ref='low-priority'] {
-  border-color: rgb(186, 174, 204);
-  color: rgb(186, 174, 204);
   padding: 0 3px;
   border-radius: 2px;
 }
