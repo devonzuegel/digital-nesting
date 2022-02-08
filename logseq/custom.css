@@ -986,6 +986,10 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
   outline-color: #e3f5ff;
   transition: ease-in 100ms;
 }
+.ls-block .ls-block,
+.ls-block .ls-block.selected {
+  outline-color: transparent;
+}
 /*******************************************************************************/
 /*******************************************************************************/
 /*******************************************************************************/
