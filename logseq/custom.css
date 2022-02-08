@@ -1477,6 +1477,9 @@ div[data-refs-self*='"card"'] .block-properties .page-property-key {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
+.ls-block .inline > .image-resize:first-child {
+  margin-left: -34px;
+}
 html[data-theme='light'] .ls-block .image-resize {
   border: 1px solid #efefef;
 }
