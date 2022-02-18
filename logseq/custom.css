@@ -762,6 +762,22 @@ div[data-drawer-name='logbook'] {
   transition: all 200ms;
   outline: 3px solid var(--ls-primary-background-color);
 }
+.tippy-tooltip {
+  border: 2px solid var(--ls-tertiary-background-color);
+}
+.tippy-tooltip * {
+  outline-color: transparent !important;
+  background: var(--ls-primary-background-color) !important;
+}
+.tippy-wrapper {
+  overflow-x: hidden;
+}
+.tippy-tooltip .block-properties.page-properties {
+  display: none;
+}
+#right-sidebar .page.relative .relative {
+  margin-left: 4px;
+}
 .color-level .block-children-left-border {
   outline: 3px solid var(--ls-secondary-background-color);
 }
@@ -986,9 +1002,30 @@ html[data-theme='light'] .selected .block-content :is(h1, h2, h3, h4, h5, h6) {
   outline-color: #e3f5ff;
   transition: ease-in 100ms;
 }
+.ui__modal-overlay {
+  background: var(--ls-border-color);
+  opacity: 0.8 !important;
+}
+.ui__modal-panel .ls-card .ls-block,
+.ui__modal-panel .ls-card .ls-block.selected,
+.ui__modal-panel .ls-card .block-children-left-border,
+.custom-query .block-children-left-border,
 .ls-block .ls-block,
 .ls-block .ls-block.selected {
   outline-color: transparent;
+}
+.ui__modal-panel .panel-content .ls-card {
+  margin: -1rem;
+}
+.ui__modal-panel .panel-content .ls-card {
+  height: fit-content;
+  min-height: auto;
+}
+.ui__modal-panel .panel-content .ls-card .blocks-container {
+  margin-bottom: 16px;
+}
+.ui__modal {
+  top: 20vh;
 }
 /*******************************************************************************/
 /*******************************************************************************/
@@ -1094,10 +1131,24 @@ a.block-control {
 // }
 
 /******************************************************************************/
+.extensions__code {
+  border: 2px solid #f7f7f7; /* same color as .CodeMirror-gutters */
+  border: 2px solid var(--ls-tertiary-background-color);
+  border: 3px solid var(--ls-secondary-background-color);
+  border-radius: 9px;
+  margin-left: -28px;
+  margin-right: -28px;
+}
 .extensions__code > .CodeMirror {
   padding-top: 0;
   margin: 0;
   border-radius: 8px;
+  font-family: Menlo, 'Fira Code', 'Roboto Mono', 'SF Mono', MonoLisa, Monaco, Menlo, Consolas, 'COURIER NEW', monospace;
+  font-weight: 300;
+}
+code,
+:not(pre) > code {
+  font-family: Menlo, 'Fira Code', 'Roboto Mono', 'SF Mono', MonoLisa, Monaco, Menlo, Consolas, 'COURIER NEW', monospace;
 }
 .extensions__code-calc {
   color: #aaa;
@@ -1392,20 +1443,42 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
 .cards-title {
   border-bottom: 1px solid var(--color-level-3);
   border-radius: 8px 8px 0 0;
-  color: #999;
+  color: #bbb;
   background: var(--color-level-1);
   font-weight: 500;
   padding-left: 4px;
+  font-family: var(--monospace-font);
+}
+.cards-title .ti-infinity {
+  /* hide the infinity symbol */
+  display: none;
 }
 .cards-title .tippy-hover {
   display: none;
 }
+.cards-review .p-2 {
+  color: #999;
+  text-align: center;
+  visibility: hidden;
+  text-align: center;
+  line-height: 0; /* Collapse the original line */
+}
+.cards-review .p-2:before {
+  content: "nice, you're done reviewing cards!";
+  visibility: visible;
+  color: #bbb;
+  padding: 20px;
+  display: block;
+}
 .cards-review .ls-card {
   padding: 0 12px 4px 12px;
 }
-.ui__modal .panel-content .block-parents {
+.ui__modal .panel-content .ls-card .block-parents {
   font-size: 0.9em;
-  margin-bottom: 16px;
+  margin-bottom: 36px;
+  border-bottom: 2px solid var(--ls-quaternary-background-color);
+  padding-bottom: 4px;
+  margin-top: -8px;
 }
 .ui__modal .panel-content div[data-refs-self*='"card"'],
 .cards-review div[data-refs-self*='"card"'] {
@@ -1548,4 +1621,18 @@ html[data-theme='dark'] .ls-block .image-resize {
 .settings-modal,
 .settings-modal button {
   text-transform: lowercase !important;
+}
+/* I mostly use this for "archived..." blocks */
+.archive {
+  font-size: 0.8em;
+  background: #ddd;
+  text-shadow: 0 0 3px #ccc;
+  margin-left: -24px;
+  z-index: 10;
+  font-weight: 500;
+  padding: 1px 8px;
+  margin-top: 2px;
+  border-radius: 8px;
+  color: white;
+  width: fit-content;
 }
