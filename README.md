@@ -37,7 +37,7 @@ I don't like that Google Docs still imposes the sheet-of-paper metaphor. I rough
 
 ### Twitter
 
-[`twitter/twitter.css`](twitter/twitter.css)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1254262711979929600)
+[`twitter/twitter.css`](twitter/twitter.css)  &nbsp;&nbsp;·&nbsp;&nbsp; [`twitter/slow-load.tampermonkey.js`](twitter/slow-load.tampermonkey.js)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1254262711979929600)
 
 When I go to Twitter to for a particular task (e.g. look at a work-related tweet), I invariably find myself distracted by my feed before I make any progress.
 
