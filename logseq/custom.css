@@ -98,6 +98,9 @@ html[data-theme='light'] .sidebar-item.color-level {
 #search-field {
   transition: opacity 0.1s ease-in;
 }
+.nav-header {
+  margin-top: 0 !important;
+}
 /* Inline custom queries */
 html[data-theme='light'] .block-body .custom-query,
 html[data-theme='light'] .dsl-query {
@@ -151,12 +154,60 @@ html[data-theme='dark'] .dsl-query {
   margin-left: -20px;
   margin-right: -20px;
 }
-.embed-block {
-  // margin-left: -10px;
+.embed-page > section {
+  margin-bottom: 0;
+}
+.embed-header {
+  padding-bottom: 0;
+}
+.embed-header + * {
+  margin-left: -0.5em;
 }
 .embed-block .px-3.pt-1.pb-2 {
   padding: 0;
-  padding-left: 12px;
+  // padding-left: 12px;
+  margin-left: -2px;
+}
+/* this tweaks the wrapper of the `edit` embed btn + the # of references */
+.embed-block .block-content-wrapper .flex-row.items-center {
+  align-items: start;
+  position: absolute;
+  top: 0;
+  right: 0;
+  // border: 1px solid green;
+}
+.embed-block {
+  margin-left: -6px;
+}
+.embed-block .block-control,
+.embed-block .block-control:hover {
+  margin-left: -1px;
+  margin-right: 1px !important;
+  padding-right: 12px;
+}
+.embed-block .inline.doing .form-checkbox {
+  margin-top: -2px;
+  margin-left: -22px !important;
+  margin-right: 2px !important;
+}
+.embed-block .block-content-wrapper,
+.embed-block .editor-wrapper {
+  margin-left: -12px !important;
+}
+.embed-block .block-children .block-content-wrapper,
+.embed-block .block-children .editor-wrapper {
+  margin-left: 0 !important;
+}
+/* don't show the parent bullet */
+.embed-block .bullet-container {
+  opacity: 0;
+  margin-left: -15px;
+}
+.embed-block .block-children {
+  border-left: 0;
+}
+.embed-block .block-children .bullet-container {
+  opacity: 1;
 }
 .embed-block #lazy-blocks .items-center {
   display: none;
@@ -387,6 +438,7 @@ html[data-theme='light'] .tag[data-ref='standup']:hover {
   content: '📗';
   margin-right: 4px;
 }
+.tag[data-ref='reading-notes'],
 .tag[data-ref='meeting'] {
   background-color: transparent;
   padding: 0 3px;
@@ -452,6 +504,13 @@ html[data-theme='light'] .tag[data-ref='standup']:hover {
 .tag[data-ref='good-for-sleepy'] {
   border-color: rgb(65, 17, 141);
   color: rgb(65, 17, 141);
+  padding: 0 3px;
+  border-radius: 2px;
+}
+.tag[data-ref='triaged'] {
+  color: #bbb !important;
+  border: 1px solid #bbb;
+  background-color: transparent;
   padding: 0 3px;
   border-radius: 2px;
 }
@@ -565,9 +624,19 @@ ins,
   margin-right: 9px !important;
 }
 .marker-switch.block-marker {
-  opacity: 0.25;
+  opacity: 0.4;
   pointer-events: none;
+  font-size: 83%;
+  padding: 2px 4px;
+  margin: 0 2px 0 0;
+  font-weight: 650;
   // display: none;
+}
+.doing .marker-switch.block-marker {
+  color: rgb(50, 209, 135);
+}
+.todo .marker-switch.block-marker {
+  color: #888;
 }
 .form-checkbox:checked {
   background-color: #999;
@@ -816,6 +885,9 @@ div[data-drawer-name='logbook'] {
 /******************************************************************************/
 /******************************************************************************/
 /******************************************************************************/
+.block-content-wrapper {
+  overflow: visible !important;
+}
 .block-content-wrapper .block-content:hover :is(h1, h2, h3, h4, h5, h6),
 .ls-block:hover .block-content:hover :is(h1, h2, h3, h4, h5, h6) {
   margin-left: 0 !important;
@@ -958,6 +1030,14 @@ textarea.h3 {
 .doing .form-checkbox {
   background: var(--ls-primary-background-color);
 }
+.custom-query .todo .form-checkbox,
+.custom-query .doing .form-checkbox {
+  background: var(--ls-secondary-background-color);
+}
+.custom-query .flex.flex.flex-col,
+.custom-query .blocks-container {
+  margin-left: -6px;
+}
 .color-level .ls-block :is(h1, h2, h3, h4, h5, h6),
 .color-level .todo .form-checkbox,
 .color-level .doing .form-checkbox {
@@ -1042,6 +1122,17 @@ a.block-control {
 #right-sidebar .todo .form-checkbox,
 #right-sidebar .doing .form-checkbox {
   background: var(--ls-secondary-background-color);
+}
+#right-sidebar .references-blocks .ls-block h1,
+#right-sidebar .references-blocks .ls-block h2,
+#right-sidebar .references-blocks .ls-block h3,
+#right-sidebar .references-blocks .todo .form-checkbox,
+#right-sidebar .references-blocks .doing .form-checkbox {
+  background: var(--ls-primary-background-color) !important;
+}
+.references-blocks .color-level .blocks-container > .ls-block {
+  outline: none;
+  margin-left: -10px;
 }
 .form-checkbox {
   height: 0.88em;
@@ -1139,6 +1230,9 @@ a.block-control {
   margin-left: -28px;
   margin-right: -28px;
 }
+.extensions__code .mt-6 {
+  margin-top: 0;
+}
 .extensions__code > .CodeMirror {
   padding-top: 0;
   margin: 0;
@@ -1185,6 +1279,36 @@ code,
 }
 
 /******************************************************************************/
+/** wip: make DOING text always green******************************************/
+/******************************************************************************/
+// #mock-text {
+//   visibility: visible !important;
+//   pointer-events: none;
+// }
+// .editor-wrapper textarea {
+//   // visibility: hidden;
+// }
+// #mock-text #mock-text_0,
+// #mock-text #mock-text_1,
+// #mock-text #mock-text_2,
+// #mock-text #mock-text_3,
+// #mock-text #mock-text_4,
+// #mock-text #mock-text_5 {
+//   color: rgb(50, 209, 135);
+//   font-size: 83%;
+//   opacity: 0.4;
+//   pointer-events: none;
+//   font-size: 83%;
+//   font-weight: 650;
+// }
+// #mock-text #mock-text_0 {
+//   margin-left: 4px;
+// }
+// #mock-text #mock-text_5 {
+//   margin-right: 2px;
+// }
+
+/******************************************************************************/
 /** Show checkboxes even when editing that line *******************************/
 /******************************************************************************/
 .ls-block[data-refs-self='["todo"]'] > * > .editor-wrapper:before {
@@ -1199,6 +1323,7 @@ code,
   background-color: var(--ls-primary-background-color);
 }
 .ls-block[data-refs-self='["doing"]'] > * > .editor-wrapper:before {
+  /* TODO: handle the fact that "doing" is just 1 of many tags */
   content: '';
   position: absolute;
   border: 2px solid rgb(50, 209, 135);
@@ -1263,6 +1388,9 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
   opacity: 1;
   transition: all 400ms;
 }
+.block-properties.page-properties {
+  margin-left: -19px;
+}
 .block-properties.page-properties,
 .block-properties.page-properties .page-property-key {
   color: var(--ls-block-ref-link-text-color);
@@ -1289,7 +1417,12 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
   margin-top: -92px;
   background-color: var(--ls-primary-background-color);
 }
-// #main-content-container .block-properties.page-properties,
+#main-content-container .block-properties.page-properties {
+  background-color: var(--ls-primary-background-color) !important;
+}
+#main-content-container .block-properties.page-properties * * {
+  opacity: 0; /* TODO: put this back later */
+}
 // #main-content-container #lazy-blocks .ls-block.pre-block[level='1']:first-child {}
 
 #main-content-container #lazy-blocks .ls-block.pre-block[level='1']:first-child {
@@ -1334,8 +1467,34 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
 #main-content .collapsed .block-properties {
   display: none;
 }
-#main-content-container .embed-page .block-properties.page-properties {
+/* don't show the properties of `quick notes` page embed on home screen */
+#main-content-container .embed-page .ls-block.pre-block:first-of-type,
+.references-blocks .embed-page .ls-block.pre-block:first-of-type
+/* #main-content-container .embed-page .block-properties.page-properties */ {
   display: none;
+}
+small {
+  color: #bbb;
+}
+.card small {
+  padding: 0;
+}
+.cover-bullet {
+  border-radius: 8px;
+  margin-left: -20px;
+  padding-left: 4px;
+  background: var(--ls-primary-background-color);
+}
+.embed-page .cover-bullet,
+.embed-block .cover-bullet {
+  background-color: var(--ls-secondary-background-color);
+}
+.references-blocks .embed-block .cover-bullet,
+.references-blocks .embed-page .cover-bullet {
+  background: var(--ls-primary-background-color);
+}
+.selected .cover-bullet {
+  background-color: #e3f5ff;
 }
 /******************************************************************************/
 /** references (linked & unlinked) ********************************************/
@@ -1472,6 +1631,12 @@ html[data-theme='dark'] .selected .block-properties.page-properties {
 }
 .cards-review .ls-card {
   padding: 0 12px 4px 12px;
+}
+.ui__modal .panel-content .ls-card .block-children-container {
+  margin: 24px 0 12px -24px !important;
+}
+.ui__modal .panel-content .ls-card .block-children-container .block-properties {
+  display: none;
 }
 .ui__modal .panel-content .ls-card .block-parents {
   font-size: 0.9em;
@@ -1635,4 +1800,10 @@ html[data-theme='dark'] .ls-block .image-resize {
   border-radius: 8px;
   color: white;
   width: fit-content;
+}
+.asset-ref-wrap[data-ext='pdf'] {
+  display: inline;
+}
+#pdf-layout-container {
+  border-right: 2px solid var(--ls-secondary-background-color);
 }
