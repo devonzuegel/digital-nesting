@@ -7,13 +7,20 @@ These files used to live in gists, but then I made so many of them for sites all
 You're welcome to borrow or tweak any of these custom styles.
 
 **Table of contents:**
+- [How to use these styles](#how-to-use-these-styles)
 - [Applications](#applications)
     - [Logseq](#logseq)
     - [Google Docs](#google-docs)
     - [Twitter](#twitter)
     - [Zoom](#zoom)
     - [Roam](#roam)
-- [How to use these styles](#how-to-use-these-styles)
+
+# How to use these styles
+Some of the styles here are loaded through a CSS/JS customizer browser extensoin. Chrome is my primary browser, so I use:
+- [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) to manage my custom styles.
+- [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) to manage my custom Javascript scripts.
+
+If you don't use Chrome, these files should work with any other sort of browser CSS and JS managers too, maybe with some minor tweaks.
 
 # Applications
 
@@ -60,10 +67,3 @@ If orphaned Zoom  tabs annoy you as much as they annoy me, I have a little gift 
 [`roam/roam.css`](roam/roam.css)
 
 ![](roam/roam.png)
-
-# How to use these styles
-Some of the styles here are loaded through a CSS/JS customizer browser extensoin. Chrome is my primary browser, so I use:
-- [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) to manage my custom styles.
-- [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) to manage my custom Javascript scripts.
-
-If you don't use Chrome, these files should work with any other sort of browser CSS and JS managers too, maybe with some minor tweaks.
