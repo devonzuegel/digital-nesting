@@ -7,13 +7,11 @@ These files used to live in gists, but then I made so many of them for sites all
 You're welcome to borrow or tweak any of these custom styles.
 
 **Table of contents:**
-- [How to use these styles](#how-to-use-these-styles)
-- [Applications](#applications)
-    - [Logseq](#logseq)
-    - [Google Docs](#google-docs)
-    - [Twitter](#twitter)
-    - [Zoom](#zoom)
-    - [Roam](#roam)
+- [Twitter](#twitter)
+- [Logseq](#logseq)
+- [Google Docs](#google-docs)
+- [Zoom](#zoom)
+- [Roam](#roam)
 
 # How to use these styles
 Some of the styles here are loaded through a CSS/JS customizer browser extensoin. Chrome is my primary browser, so I use:
@@ -23,6 +21,18 @@ Some of the styles here are loaded through a CSS/JS customizer browser extensoin
 If you don't use Chrome, these files should work with any other sort of browser CSS and JS managers too, maybe with some minor tweaks.
 
 # Applications
+
+### Twitter
+
+[`twitter/twitter.css`](twitter/twitter.css)  &nbsp;&nbsp;·&nbsp;&nbsp; [`twitter/slow-load.tampermonkey.js`](twitter/slow-load.tampermonkey.js)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1254262711979929600)
+
+When I go to Twitter to for a particular task (e.g. look at a work-related tweet), I invariably find myself distracted by my feed before I make any progress.
+
+To combat that, I added some custom CSS to https://twitter.com so I stop making that mistake!
+
+It also neatens up the styles and removes some of the modules that I never use.
+
+<img src="twitter/twitter.png" />
 
 ### Logseq
 
@@ -42,25 +52,13 @@ I don't like that Google Docs still imposes the sheet-of-paper metaphor. I rough
 
 ![](google-docs/google-docs.png)
 
-### Twitter
-
-[`twitter/twitter.css`](twitter/twitter.css)  &nbsp;&nbsp;·&nbsp;&nbsp; [`twitter/slow-load.tampermonkey.js`](twitter/slow-load.tampermonkey.js)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1254262711979929600)
-
-When I go to Twitter to for a particular task (e.g. look at a work-related tweet), I invariably find myself distracted by my feed before I make any progress.
-
-To combat that, I added some custom CSS to https://twitter.com so I stop making that mistake!
-
-It also neatens up the styles and removes some of the modules that I never use.
-
-<img width="70%" src="twitter/twitter.png" />
-
 ### Zoom
 
 [`zoom/zoom.js`](zoom/zoom.js)  &nbsp;&nbsp;·&nbsp;&nbsp; [More info](https://twitter.com/devonzuegel/status/1242590822740049921)
 
 If orphaned Zoom  tabs annoy you as much as they annoy me, I have a little gift for you! [This TamperMonkey script](zoom.js) automatically closes those tabs on success.
 
-<img width="70%" src="zoom/zoom.jpg"/>
+<img src="zoom/zoom.jpg"/>
 
 ### Roam
 
