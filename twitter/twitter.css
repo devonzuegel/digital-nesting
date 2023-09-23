@@ -48,11 +48,11 @@ a[aria-label="Search and explore"] {
     display: none;
 }
 
-/* Banner */
-.css-1dbjc4n.r-150rngu.r-16y2uox.r-1wbh5a2.r-rthrr5:before {
+/* Red banner */
+[data-testid="primaryColumn"]:before {
     content: '👋 Are you trying to achieve something?';
     display: block;
-    background-color: rgb(255, 0, 0, 80%);
+    background-color: rgb(255, 0, 0, 95%);
     border-bottom: 2px solid rgb(255, 0, 0, 100%);
     color: white;
     padding: 8px;
@@ -67,7 +67,7 @@ a[aria-label="Search and explore"] {
     z-index: 4000;
     margin-top: -310px;
 }
-.css-1dbjc4n.r-150rngu.r-16y2uox.r-1wbh5a2.r-rthrr5{
+[data-testid="primaryColumn"]{
     margin-top: 310px;
 }
 
